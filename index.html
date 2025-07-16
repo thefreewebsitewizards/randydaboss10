@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Bossman aka Randydaboss | Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --electric-cyan: #00FFFF;
+            --bright-turquoise: #1DE9B6;
+            --vibrant-orange: #FF6B35;
+            --coral-accent: #FF8A50;
+            --deep-purple: #9C27B0;
+            --magenta-highlight: #E91E63;
+            --bold-red: #F44336;
+            --neon-red: #FF1744;
+            --dark-base: #0D1117;
+            --charcoal: #1A1A1A;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-base);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--electric-cyan), var(--deep-purple), var(--vibrant-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--electric-cyan), var(--deep-purple));
+        }
+        
+        .accent-gradient-bg {
+            background: linear-gradient(135deg, var(--vibrant-orange), var(--bold-red));
+        }
+        
+        .holographic-bg {
+            background: linear-gradient(135deg, var(--electric-cyan), var(--deep-purple), var(--vibrant-orange));
+        }
+        
+        .glow-cyan {
+            box-shadow: 0 0 15px var(--electric-cyan);
+        }
+        
+        .glow-orange {
+            box-shadow: 0 0 15px var(--vibrant-orange);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 15px var(--deep-purple);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 20px var(--electric-cyan);
+            transition: all 0.3s ease;
+        }
+        
+        .hover-glow-orange:hover {
+            box-shadow: 0 0 20px var(--vibrant-orange);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, var(--electric-cyan), var(--deep-purple)) 1;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+            }
+        }
+        
+        .audio-player {
+            background: rgba(13, 17, 23, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--electric-cyan), var(--deep-purple));
+            height: 4px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--electric-cyan);
+            cursor: pointer;
+        }
+        
+        .track-card:hover .play-icon {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .play-icon {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--electric-cyan);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 10px;
+            width: 2px;
+            height: 100%;
+            background: var(--electric-cyan);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .chromatic::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            color: var(--magenta-highlight);
+            z-index: -1;
+        }
+        
+        .chromatic::before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            color: var(--electric-cyan);
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .audio-visualizer {
+            display: flex;
+            align-items: flex-end;
+            height: 40px;
+            gap: 2px;
+        }
+        
+        .visualizer-bar {
+            background: linear-gradient(to top, var(--electric-cyan), var(--deep-purple));
+            width: 4px;
+            border-radius: 2px;
+            transition: height 0.1s ease-out;
+        }
+        
+        /* Sidebar collapsed styles */
+        /* Improved Collapsed Sidebar Styles */
+        #sidebar.w-16 {
+            padding: 1.5rem 0.75rem;
+        }
+        
+        #sidebar.w-16 .flex.items-center.justify-between {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 2.5rem;
+            gap: 1rem;
+            position: relative;
+            padding-top: 2.5rem;
+        }
+        
+        #sidebar.w-16 .flex.items-center.space-x-3 {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        #sidebar.w-16 #sidebar-title {
+            display: none;
+        }
+        
+        #sidebar.w-16 .nav-text {
+            display: none;
+        }
+        
+        #sidebar.w-16 nav {
+            width: 100%;
+        }
+        
+        #sidebar.w-16 nav ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+        }
+        
+        #sidebar.w-16 nav ul li {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #sidebar.w-16 nav ul li a {
+            justify-content: center;
+            padding: 0.875rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            border-radius: 0.75rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        #sidebar.w-16 nav ul li a:hover {
+            background: rgba(6, 182, 212, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+        }
+        
+        #sidebar.w-16 nav ul li a i {
+            margin: 0;
+            font-size: 1.125rem;
+        }
+        
+        #sidebar.w-16 .mt-auto {
+            display: none;
+        }
+        
+        /* Toggle button positioning for collapsed state */
+        #sidebar.w-16 #sidebar-toggle {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.25rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            background: rgba(75, 85, 99, 0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        #sidebar.w-16 #sidebar-toggle:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Loading Screen Animations */
+        .vinyl-record {
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loading-bar {
+            animation: loading-pulse 1.5s ease-in-out infinite;
+        }
+        
+        .loading-bar:nth-child(1) { animation-delay: 0s; }
+        .loading-bar:nth-child(2) { animation-delay: 0.1s; }
+        .loading-bar:nth-child(3) { animation-delay: 0.2s; }
+        .loading-bar:nth-child(4) { animation-delay: 0.3s; }
+        .loading-bar:nth-child(5) { animation-delay: 0.4s; }
+        .loading-bar:nth-child(6) { animation-delay: 0.5s; }
+        .loading-bar:nth-child(7) { animation-delay: 0.6s; }
+        
+        @keyframes loading-pulse {
+            0%, 100% {
+                height: 8px;
+                opacity: 0.3;
+            }
+            50% {
+                height: 24px;
+                opacity: 1;
+            }
+        }
+        
+        #loading-screen {
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        
+        #loading-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-black z-[9999] flex items-center justify-center">
+        <div class="text-center">
+            <!-- Vinyl Record Animation -->
+            <div class="relative mb-8">
+                <div class="vinyl-record w-32 h-32 mx-auto relative">
+                    <!-- Outer ring -->
+                    <div class="absolute inset-0 rounded-full border-4 border-gray-800 bg-gradient-to-br from-gray-900 to-black"></div>
+                    <!-- Middle ring -->
+                    <div class="absolute inset-4 rounded-full border-2 border-gray-700 bg-gradient-to-br from-gray-800 to-gray-900"></div>
+                    <!-- Inner ring -->
+                    <div class="absolute inset-8 rounded-full border border-gray-600 bg-gradient-to-br from-gray-700 to-gray-800"></div>
+                    <!-- Center hole -->
+                    <div class="absolute top-1/2 left-1/2 w-6 h-6 -mt-3 -ml-3 rounded-full bg-black border-2 border-gray-600"></div>
+                    <!-- Vinyl grooves -->
+                    <div class="absolute inset-2 rounded-full border border-gray-600 opacity-30"></div>
+                    <div class="absolute inset-6 rounded-full border border-gray-600 opacity-20"></div>
+                    <div class="absolute inset-10 rounded-full border border-gray-600 opacity-10"></div>
+                    <!-- Reflection effect -->
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-10"></div>
+                </div>
+                <!-- Needle/Tonearm -->
+                <div class="absolute top-4 right-8 w-16 h-1 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full transform rotate-45 origin-left"></div>
+                <div class="absolute top-3 right-7 w-2 h-2 bg-gray-500 rounded-full"></div>
+            </div>
+            
+            <!-- Loading Text -->
+            <h1 class="text-3xl font-bold font-orbitron gradient-text mb-4">DJ BOSSMAN</h1>
+            <p class="text-lg text-gray-400 mb-6">Loading the beats...</p>
+            
+            <!-- Progress Bar -->
+            <div class="w-64 h-2 bg-gray-800 rounded-full mx-auto mb-4 overflow-hidden">
+                <div id="loading-progress" class="h-full bg-gradient-to-r from-[var(--electric-cyan)] to-[var(--vibrant-orange)] rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+            
+            <!-- Loading Percentage -->
+            <div id="loading-percentage" class="text-sm text-gray-500">0%</div>
+            
+            <!-- Audio Visualizer Bars -->
+            <div class="flex justify-center items-end space-x-1 mt-6 h-8">
+                <div class="loading-bar w-1 bg-[var(--electric-cyan)] rounded-full"></div>
+                <div class="loading-bar w-1 bg-[var(--vibrant-orange)] rounded-full"></div>
+                <div class="loading-bar w-1 bg-[var(--deep-purple)] rounded-full"></div>
+                <div class="loading-bar w-1 bg-[var(--electric-cyan)] rounded-full"></div>
+                <div class="loading-bar w-1 bg-[var(--vibrant-orange)] rounded-full"></div>
+                <div class="loading-bar w-1 bg-[var(--deep-purple)] rounded-full"></div>
+                <div class="loading-bar w-1 bg-[var(--electric-cyan)] rounded-full"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Floating Particles -->
+    <div id="particles-container"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center hidden backdrop-blur-md">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-3xl text-white hover:text-red-400 transition">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="flex flex-col items-center space-y-8 text-xl px-6">
+            <a href="#home" class="gradient-text font-bold hover:text-white transition text-center">Home</a>
+            <a href="#about" class="gradient-text font-bold hover:text-white transition text-center">About</a>
+            <a href="#media" class="gradient-text font-bold hover:text-white transition text-center">Media</a>
+            <a href="#contact" class="gradient-text font-bold hover:text-white transition text-center">Contact</a>
+            <div class="flex flex-wrap justify-center gap-6 mt-8">
+                <a href="http://www.facebook.com/djbossmanRDB" target="_blank" class="text-white hover:text-[#1877F2] transition"><i class="fab fa-facebook-f text-2xl"></i></a>
+                <a href="http://instagram.com/Randydaboss10" target="_blank" class="text-white hover:text-[#E1306C] transition"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="http://www.twitter.com/Randydaboss" target="_blank" class="text-white hover:text-[#1DA1F2] transition"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="https://soundcloud.com/djbossmanrdb" target="_blank" class="text-white hover:text-[#FF8800] transition"><i class="fab fa-soundcloud text-2xl"></i></a>
+                <a href="http://www.spotify.com/" target="_blank" class="text-white hover:text-[#1DB954] transition"><i class="fab fa-spotify text-2xl"></i></a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="hidden md:flex fixed left-0 top-0 h-full w-16 bg-black bg-opacity-80 backdrop-blur-md z-40 flex-col p-6 border-r border-gray-800 transition-all duration-300">
+        <div class="flex items-center justify-between mb-10">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center glow-cyan">
+                    <span class="font-orbitron text-xl font-bold">DB</span>
+                </div>
+                <h1 id="sidebar-title" class="font-orbitron text-xl font-bold gradient-text transition-opacity duration-300">DJ BOSSMAN</h1>
+            </div>
+            <button id="sidebar-toggle" class="text-white hover:text-[var(--electric-cyan)] transition-colors">
+                <i class="fas fa-chevron-right text-lg"></i>
+            </button>
+        </div>
+        
+        <nav class="flex-1">
+            <ul class="space-y-4">
+                <li>
+                    <a href="#home" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transition">
+                        <i class="fas fa-home w-6 text-center text-[var(--electric-cyan)]"></i>
+                        <span class="nav-text transition-opacity duration-300">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transition">
+                        <i class="fas fa-user w-6 text-center text-[var(--electric-cyan)]"></i>
+                        <span class="nav-text transition-opacity duration-300">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#media" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transition">
+                        <i class="fas fa-music w-6 text-center text-[var(--electric-cyan)]"></i>
+                        <span class="nav-text transition-opacity duration-300">Media</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transition">
+                        <i class="fas fa-envelope w-6 text-center text-[var(--electric-cyan)]"></i>
+                        <span class="nav-text transition-opacity duration-300">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="mt-auto pt-6 border-t border-gray-800">
+            <h3 id="social-title" class="text-sm uppercase text-gray-400 mb-3 transition-opacity duration-300">Follow DJ Bossman</h3>
+            <div id="social-icons" class="flex space-x-4 transition-opacity duration-300">
+                <a href="http://www.facebook.com/djbossmanRDB" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1877F2] transition">
+                    <i class="fab fa-facebook-f text-sm"></i>
+                </a>
+                <a href="http://instagram.com/Randydaboss10" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#E1306C] transition">
+                    <i class="fab fa-instagram text-sm"></i>
+                </a>
+                <a href="http://www.twitter.com/Randydaboss" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DA1F2] transition">
+                    <i class="fab fa-twitter text-sm"></i>
+                </a>
+                <a href="https://soundcloud.com/djbossmanrdb" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#FF8800] transition">
+                    <i class="fab fa-soundcloud text-sm"></i>
+                </a>
+                <a href="http://www.spotify.com/" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DB954] transition">
+                    <i class="fab fa-spotify text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Header -->
+    <header class="md:hidden fixed top-0 left-0 right-0 bg-black bg-opacity-90 backdrop-blur-md z-40 p-4 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center glow-cyan">
+                <span class="font-orbitron text-lg font-bold">DB</span>
+            </div>
+            <h1 class="font-orbitron text-lg font-bold gradient-text">DJ BOSSMAN</h1>
+        </div>
+        <button id="mobile-menu-button" class="text-white text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content" class="md:ml-16 pb-32 transition-all duration-300">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-0">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
+                <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-20">
+                    <source src="videos/hero.mp4" type="video/mp4">
+                    <!-- Fallback for browsers that don't support video -->
+                    <div class="absolute inset-0 bg-[url('images/background.jpg')] bg-cover bg-center opacity-20"></div>
+                </video>
+            </div>
+            
+            <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 font-orbitron leading-tight gradient-text">DJ BOSSMAN</h1>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-medium mb-6 sm:mb-8 gradient-text">aka Randydaboss</h2>
+                <p class="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-8 sm:mb-10 px-2">Key entertainment provider of great music and great vibes. New mixes and original music coming soon!</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                    <a href="#media" class="px-6 sm:px-8 py-3 rounded-full gradient-bg text-white font-bold hover-glow transition-all transform hover:scale-105 text-center">
+                        <i class="fas fa-music mr-2"></i> Listen Now
+                    </a>
+                    <a href="#contact" class="px-6 sm:px-8 py-3 rounded-full bg-transparent border-2 border-[var(--electric-cyan)] text-white font-bold hover-glow transition-all transform hover:scale-105 text-center">
+                        <i class="fas fa-calendar-alt mr-2"></i> Book Me
+                    </a>
+                </div>
+                
+                <div class="mt-16">
+                    <div class="audio-visualizer flex justify-center" id="hero-visualizer">
+                        <!-- Visualizer bars will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#featured" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-2xl text-[var(--electric-cyan)]"></i>
+            </a>
+        </section>
+        
+        <!-- Featured Tracks -->
+        <section id="featured" class="py-16 sm:py-20 bg-gradient-to-b from-[var(--dark-base)] to-black">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12 gap-4">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text">Featured Tracks</h2>
+                    <a href="#media" class="text-sm uppercase tracking-wider text-[var(--electric-cyan)] hover:text-white transition flex items-center">
+                        View All <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div id="featured-tracks-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto place-items-center">
+                    <!-- Featured tracks will be populated dynamically -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Music Categories -->
+        <section class="py-16 sm:py-20 bg-black">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text text-center mb-12 sm:mb-16">Music Categories</h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Beats -->
+                    <div class="category-card bg-gradient-to-br from-[var(--dark-base)] to-[var(--charcoal)] rounded-xl p-6 border border-gray-800 hover:border-[var(--electric-cyan)] transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-[var(--electric-cyan)] opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
+                        <div class="absolute -left-10 -bottom-10 w-32 h-32 rounded-full bg-[var(--deep-purple)] opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
+                        
+                        <div class="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center mb-6 glow-cyan">
+                            <i class="fas fa-drum text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Beats</h3>
+                        <p class="text-gray-400 mb-6">Original beat productions crafted with unique sounds and rhythms.</p>
+                        <a href="#media" class="inline-flex items-center text-[var(--electric-cyan)] hover:text-white transition">
+                            Explore Beats <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Mixes -->
+                    <div class="category-card bg-gradient-to-br from-[var(--dark-base)] to-[var(--charcoal)] rounded-xl p-6 border border-gray-800 hover:border-[var(--vibrant-orange)] transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-[var(--vibrant-orange)] opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
+                        <div class="absolute -left-10 -bottom-10 w-32 h-32 rounded-full bg-[var(--bold-red)] opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
+                        
+                        <div class="w-16 h-16 rounded-xl accent-gradient-bg flex items-center justify-center mb-6 glow-orange">
+                            <i class="fas fa-sliders-h text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Mixes</h3>
+                        <p class="text-gray-400 mb-6">DJ mix sets blending tracks seamlessly for non-stop entertainment.</p>
+                        <a href="#media" class="inline-flex items-center text-[var(--vibrant-orange)] hover:text-white transition">
+                            Explore Mixes <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Mashups -->
+                    <div class="category-card bg-gradient-to-br from-[var(--dark-base)] to-[var(--charcoal)] rounded-xl p-6 border border-gray-800 hover:border-[var(--deep-purple)] transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-[var(--deep-purple)] opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
+                        <div class="absolute -left-10 -bottom-10 w-32 h-32 rounded-full bg-[var(--magenta-highlight)] opacity-10 group-hover:opacity-20 transition-all duration-500"></div>
+                        
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--deep-purple)] to-[var(--magenta-highlight)] flex items-center justify-center mb-6 glow-purple">
+                            <i class="fas fa-random text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Mashups</h3>
+                        <p class="text-gray-400 mb-6">Creative track combinations that bring new life to familiar songs.</p>
+                        <a href="#media" class="inline-flex items-center text-[var(--magenta-highlight)] hover:text-white transition">
+                            Explore Mashups <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-16 sm:py-20 bg-gradient-to-b from-black to-[var(--dark-base)]">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+                    <div class="lg:w-1/2 mb-8 lg:mb-0 w-full max-w-md lg:max-w-none">
+                        <div class="relative">
+                            <div class="w-full h-full rounded-2xl overflow-hidden border-4 border-[var(--electric-cyan)] glow-cyan">
+                                <img src="images/about_profile.jpg" alt="DJ Bossman" class="w-full h-auto object-cover">
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full gradient-bg flex items-center justify-center glow-cyan">
+                                <i class="fas fa-headphones text-4xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 w-full">
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text mb-6 text-center lg:text-left">About DJ Bossman</h2>
+                        <p class="text-lg mb-6">
+                            <span class="text-[var(--electric-cyan)] font-bold">"Hi World! I'm DJ Bossman aka Randydaboss."</span> I love making mixes as much as I love music in general. Please check out my mixes and jam out. I've been DJing for three plus years now and I'm constantly working to get better. I appreciate the listening and support.
+                        </p>
+                        <p class="mb-8">
+                            DJ Bossman aka Randydaboss is a key entertainment provider of great music and great vibes. New mixes will be posted often in addition to original music creations coming in the near future. Stay tuned, listen, turn up, and enjoy!
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            <div class="px-4 py-2 rounded-full bg-gray-800 text-sm flex items-center">
+                                <i class="fas fa-music text-[var(--electric-cyan)] mr-2"></i> 3+ Years Experience
+                            </div>
+                            <div class="px-4 py-2 rounded-full bg-gray-800 text-sm flex items-center">
+                                <i class="fas fa-sliders-h text-[var(--vibrant-orange)] mr-2"></i> 50+ Mixes
+                            </div>
+                            <div class="px-4 py-2 rounded-full bg-gray-800 text-sm flex items-center">
+                                <i class="fas fa-users text-[var(--deep-purple)] mr-2"></i> 10K+ Listeners
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </section>
+        
+        <!-- Media Section -->
+        <section id="media" class="py-16 sm:py-20 bg-[var(--dark-base)]">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text mb-6 text-center sm:text-left">Media Library</h2>
+                <p class="text-gray-400 max-w-3xl mb-8 sm:mb-12 text-center sm:text-left">Explore my complete collection of beats, mixes, and mashups. New content added regularly!</p>
+                
+                <!-- Search and Filter -->
+                <div class="mb-6 sm:mb-8">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 relative">
+                            <input type="text" placeholder="Search tracks..." class="w-full bg-gray-900 bg-opacity-50 border border-gray-800 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:border-[var(--electric-cyan)] focus:ring-1 focus:ring-[var(--electric-cyan)] transition text-sm sm:text-base">
+                            <i class="fas fa-search absolute left-3 top-4 text-gray-500"></i>
+                        </div>
+                        <select class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:border-[var(--electric-cyan)] focus:ring-1 focus:ring-[var(--electric-cyan)] transition text-sm sm:text-base min-w-0 sm:min-w-[150px]">
+                            <option>All Categories</option>
+                            <option>Beats</option>
+                            <option>Mixes</option>
+                            <option>Mashups</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Tabs -->
+                <div class="flex border-b border-gray-800 mb-6 sm:mb-8 overflow-x-auto">
+                    <button class="px-4 sm:px-6 py-3 border-b-2 border-[var(--electric-cyan)] text-[var(--electric-cyan)] font-medium whitespace-nowrap text-sm sm:text-base">All</button>
+                    <button class="px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-400 hover:text-white transition whitespace-nowrap text-sm sm:text-base">Beats</button>
+                    <button class="px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-400 hover:text-white transition whitespace-nowrap text-sm sm:text-base">Mixes</button>
+                    <button class="px-4 sm:px-6 py-3 border-b-2 border-transparent text-gray-400 hover:text-white transition whitespace-nowrap text-sm sm:text-base">Mashups</button>
+                </div>
+                
+                <!-- Track Count Display -->
+                <div class="mb-4">
+                    <p id="track-count" class="text-gray-400 text-sm">Showing 0 tracks</p>
+                </div>
+                
+                <!-- Tracks List -->
+                <div class="space-y-2">
+                    <!-- Track items will be populated by JavaScript -->
+                </div>
+                
+                <!-- Load More -->
+                <div class="text-center mt-12">
+                    <button class="px-8 py-3 rounded-full bg-transparent border-2 border-[var(--electric-cyan)] text-white font-bold hover-glow transition-all transform hover:scale-105">
+                        Load More
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Photo Gallery -->
+        <section class="py-16 sm:py-20 bg-black">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text mb-6 text-center">Gallery</h2>
+                <p class="text-gray-400 max-w-3xl mx-auto mb-8 sm:mb-12 text-center px-4">Behind the scenes and performance photos from DJ Bossman's journey.</p>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+                    <!-- Video 1 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-95852223.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-95852223.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-111187313.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-111187313.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-1137763621.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-1137763621.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 4 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-1183720591.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-1183720591.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 5 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-1406377752.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-1406377752.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 6 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-1449977518.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-1449977518.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 7 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-14829082.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-14829082.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 8 -->
+                    <div class="gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative" onclick="openVideoLightbox('videos/Snapchat-1513832485.mp4')">
+                        <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                            <source src="videos/Snapchat-1513832485.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="text-center mt-8">
+                    <button id="load-more-btn" onclick="loadMoreGalleryItems()" class="px-8 py-3 bg-gradient-to-r from-[var(--electric-cyan)] to-[var(--vibrant-orange)] text-black font-semibold rounded-lg hover:opacity-90 transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-plus mr-2"></i>Load More
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 sm:py-20 bg-gradient-to-b from-[var(--dark-base)] to-black">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text mb-6 text-center">Get In Touch</h2>
+                    <p class="text-gray-400 mb-8 sm:mb-12 text-center px-4">For bookings, collaborations, or just to say hello!</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                        <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 border border-gray-800 hover:border-[var(--electric-cyan)] transition">
+                            <h3 class="text-xl font-bold mb-6 gradient-text">Contact Info</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Phone</h4>
+                                        <a href="tel:314-283-9924" class="text-gray-400 hover:text-white transition">314-283-9924</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Email</h4>
+                                        <a href="mailto:randydaboss10@gmail.com" class="text-gray-400 hover:text-white transition">randydaboss10@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Booking</h4>
+                                        <p class="text-gray-400">Available for events, parties, and collaborations</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 border border-gray-800 hover:border-[var(--vibrant-orange)] transition">
+                            <h3 class="text-xl font-bold mb-6 gradient-text">Social Media</h3>
+                            
+                            <div class="space-y-4">
+                                <a href="http://www.facebook.com/djbossmanRDB" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg bg-gray-800 bg-opacity-50 hover:bg-opacity-70 transition">
+                                    <div class="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center text-white">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                    <span>Facebook</span>
+                                    <i class="fas fa-external-link-alt ml-auto text-gray-400"></i>
+                                </a>
+                                
+                                <a href="http://instagram.com/Randydaboss10" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg bg-gray-800 bg-opacity-50 hover:bg-opacity-70 transition">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#833AB4] via-[#C13584] to-[#E1306C] flex items-center justify-center text-white">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <span>Instagram</span>
+                                    <i class="fas fa-external-link-alt ml-auto text-gray-400"></i>
+                                </a>
+                                
+                                <a href="http://www.twitter.com/Randydaboss" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg bg-gray-800 bg-opacity-50 hover:bg-opacity-70 transition">
+                                    <div class="w-10 h-10 rounded-full bg-[#1DA1F2] flex items-center justify-center text-white">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <span>Twitter/X</span>
+                                    <i class="fas fa-external-link-alt ml-auto text-gray-400"></i>
+                                </a>
+                                
+                                <a href="https://soundcloud.com/djbossmanrdb" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg bg-gray-800 bg-opacity-50 hover:bg-opacity-70 transition">
+                                    <div class="w-10 h-10 rounded-full bg-[#FF8800] flex items-center justify-center text-white">
+                                        <i class="fab fa-soundcloud"></i>
+                                    </div>
+                                    <span>SoundCloud</span>
+                                    <i class="fas fa-external-link-alt ml-auto text-gray-400"></i>
+                                </a>
+                                
+                                <a href="http://www.spotify.com/" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg bg-gray-800 bg-opacity-50 hover:bg-opacity-70 transition">
+                                    <div class="w-10 h-10 rounded-full bg-[#1DB954] flex items-center justify-center text-white">
+                                        <i class="fab fa-spotify"></i>
+                                    </div>
+                                    <span>Spotify</span>
+                                    <i class="fas fa-external-link-alt ml-auto text-gray-400"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Share Modal -->
+    <div id="share-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-gray-900 rounded-xl p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="share-track-title" class="text-xl font-bold">Share Track</h3>
+                <button onclick="closeShareModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+                <a id="facebook-share" href="#" target="_blank" class="flex items-center space-x-3 p-3 rounded-lg bg-[#1877F2] hover:bg-opacity-80 transition">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Share on Facebook</span>
+                </a>
+                
+                <a id="twitter-share" href="#" target="_blank" class="flex items-center space-x-3 p-3 rounded-lg bg-[#1DA1F2] hover:bg-opacity-80 transition">
+                    <i class="fab fa-twitter"></i>
+                    <span>Share on Twitter</span>
+                </a>
+                
+                <a id="instagram-share" href="#" target="_blank" class="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-[#833AB4] to-[#E1306C] hover:opacity-80 transition">
+                    <i class="fab fa-instagram"></i>
+                    <span>Share on Instagram</span>
+                </a>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <input id="share-link" type="text" class="flex-1 bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm" readonly>
+                <button onclick="copyTrackLink()" class="px-4 py-2 bg-[var(--electric-cyan)] text-black rounded hover:opacity-80 transition">
+                    Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+        <div class="relative max-w-4xl max-h-full p-4">
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
+            <video id="lightbox-video" class="max-w-full max-h-full object-contain hidden" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Audio Player -->
+    <div class="audio-player fixed bottom-0 left-0 right-0 h-24 sm:h-20 bg-black bg-opacity-95 border-t border-gray-800 flex items-center px-3 sm:px-4 z-30 backdrop-blur-md">
+        <div class="container mx-auto flex flex-col">
+            <!-- Progress Bar -->
+            <div class="progress-container w-full h-1 mb-1 sm:mb-2 cursor-pointer">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <!-- Track Info -->
+                <div class="flex items-center space-x-2 sm:space-x-4 flex-1 min-w-0">
+                    <img src="https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Track Cover" class="w-12 h-12 sm:w-12 sm:h-12 rounded flex-shrink-0" id="current-track-cover">
+                    <div class="min-w-0 flex-1">
+                        <h4 class="text-sm sm:text-sm font-medium truncate" id="current-track-title">Summer Vibes Mix</h4>
+                        <p class="text-xs text-gray-400 truncate" id="current-track-artist">DJ Bossman</p>
+                    </div>
+
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex items-center justify-center space-x-3 sm:space-x-6 flex-shrink-0">
+                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110 hidden sm:block">
+                        <i class="fas fa-random text-sm"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110" id="prev-track">
+                        <i class="fas fa-step-backward text-sm"></i>
+                    </button>
+                    <button class="w-10 h-10 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-gray-200 transition transform hover:scale-110" id="play-pause">
+                        <i class="fas fa-play text-sm sm:text-sm" id="play-pause-icon"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110" id="next-track">
+                        <i class="fas fa-step-forward text-sm"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110 hidden sm:block">
+                        <i class="fas fa-redo text-sm"></i>
+                    </button>
+                </div>
+                
+                <!-- Volume and Other -->
+                <div class="flex items-center justify-end space-x-2 sm:space-x-4 flex-1 min-w-0">
+                    <button class="text-gray-400 hover:text-white transition hidden md:block">
+                        <i class="fas fa-list-ol text-sm"></i>
+                    </button>
+                    <div class="flex items-center space-x-2 w-16 sm:w-24 hidden sm:flex">
+                        <i class="fas fa-volume-up text-gray-400 text-xs"></i>
+                        <input type="range" min="0" max="100" value="80" class="volume-slider" id="volume-control">
+                    </div>
+                    <button class="text-gray-400 hover:text-white transition hidden lg:block">
+                        <i class="fas fa-expand text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hidden Audio Element -->
+        <audio id="audio-player"></audio>
+    </div>
+    
+
+    
+    <!-- Share Modal -->
+    <div id="share-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-gray-900 rounded-xl p-4 sm:p-6 max-w-md w-full border border-gray-800">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg sm:text-xl font-bold gradient-text">Share Track</h3>
+                <button onclick="closeShareModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base" id="share-track-title">Share this track with your friends!</p>
+            <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <a href="#" target="_blank" class="flex items-center justify-center p-2 sm:p-3 rounded-lg bg-[#1877F2] text-white hover:bg-opacity-90 transition text-sm" id="facebook-share">
+                    <i class="fab fa-facebook-f mr-1 sm:mr-2"></i> Facebook
+                </a>
+                <a href="#" target="_blank" class="flex items-center justify-center p-2 sm:p-3 rounded-lg bg-[#1DA1F2] text-white hover:bg-opacity-90 transition text-sm" id="twitter-share">
+                    <i class="fab fa-twitter mr-1 sm:mr-2"></i> Twitter
+                </a>
+                <a href="#" target="_blank" class="flex items-center justify-center p-2 sm:p-3 rounded-lg bg-gradient-to-br from-[#833AB4] via-[#C13584] to-[#E1306C] text-white hover:bg-opacity-90 transition text-sm" id="instagram-share">
+                    <i class="fab fa-instagram mr-1 sm:mr-2"></i> Instagram
+                </a>
+                <button onclick="copyTrackLink()" class="flex items-center justify-center p-2 sm:p-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition text-sm">
+                    <i class="fas fa-link mr-1 sm:mr-2"></i> Copy Link
+                </button>
+            </div>
+            <div class="relative">
+                <input type="text" id="share-link" class="w-full bg-gray-800 rounded-lg px-3 sm:px-4 py-2 pr-8 sm:pr-10 text-xs sm:text-sm" value="https://djbossman.com/track/summer-vibes" readonly>
+                <button onclick="copyTrackLink()" class="absolute right-2 top-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-copy text-xs sm:text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Loading Screen Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const loadingProgress = document.getElementById('loading-progress');
+            const loadingPercentage = document.getElementById('loading-percentage');
+            
+            let progress = 0;
+            const resources = [
+                'images', 'audio', 'videos', 'fonts', 'scripts'
+            ];
+            
+            // Simulate loading progress
+            const loadingInterval = setInterval(() => {
+                progress += Math.random() * 15 + 5; // Random increment between 5-20
+                
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(loadingInterval);
+                    
+                    // Wait a moment then hide loading screen
+                    setTimeout(() => {
+                        loadingScreen.classList.add('fade-out');
+                        
+                        // Remove loading screen from DOM after transition
+                        setTimeout(() => {
+                            loadingScreen.remove();
+                        }, 500);
+                    }, 800);
+                }
+                
+                // Update progress bar and percentage
+                loadingProgress.style.width = progress + '%';
+                loadingPercentage.textContent = Math.floor(progress) + '%';
+            }, 200);
+            
+            // Also check for actual resource loading
+            let resourcesLoaded = 0;
+            const totalResources = document.images.length + document.querySelectorAll('audio, video').length;
+            
+            // Monitor image loading
+            Array.from(document.images).forEach(img => {
+                if (img.complete) {
+                    resourcesLoaded++;
+                } else {
+                    img.addEventListener('load', () => {
+                        resourcesLoaded++;
+                        updateRealProgress();
+                    });
+                    img.addEventListener('error', () => {
+                        resourcesLoaded++;
+                        updateRealProgress();
+                    });
+                }
+            });
+            
+            // Monitor audio/video loading
+            document.querySelectorAll('audio, video').forEach(media => {
+                media.addEventListener('canplaythrough', () => {
+                    resourcesLoaded++;
+                    updateRealProgress();
+                });
+                media.addEventListener('error', () => {
+                    resourcesLoaded++;
+                    updateRealProgress();
+                });
+            });
+            
+            function updateRealProgress() {
+                if (totalResources > 0) {
+                    const realProgress = (resourcesLoaded / totalResources) * 100;
+                    if (realProgress > progress) {
+                        progress = realProgress;
+                        loadingProgress.style.width = progress + '%';
+                        loadingPercentage.textContent = Math.floor(progress) + '%';
+                    }
+                }
+            }
+            
+            // Initial check for already loaded resources
+            updateRealProgress();
+        });
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+        
+        // Sidebar Toggle Functionality
+        let sidebarCollapsed = true;
+        
+        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const sidebarTitle = document.getElementById('sidebar-title');
+            const navTexts = document.querySelectorAll('.nav-text');
+            const socialTitle = document.getElementById('social-title');
+            const socialIcons = document.getElementById('social-icons');
+            const toggleIcon = this.querySelector('i');
+            
+            if (sidebarCollapsed) {
+                // Expand sidebar
+                sidebar.classList.remove('w-16');
+                sidebar.classList.add('w-64');
+                mainContent.classList.remove('md:ml-16');
+                mainContent.classList.add('md:ml-64');
+                
+                // Show text elements
+                setTimeout(() => {
+                    sidebarTitle.style.opacity = '1';
+                    socialTitle.style.opacity = '1';
+                    socialIcons.style.opacity = '1';
+                    navTexts.forEach(text => text.style.opacity = '1');
+                }, 150);
+                
+                // Change icon
+                toggleIcon.classList.add('fa-chevron-left');
+                toggleIcon.classList.remove('fa-chevron-right');
+                
+                sidebarCollapsed = false;
+            } else {
+                // Collapse sidebar
+                sidebarTitle.style.opacity = '0';
+                socialTitle.style.opacity = '0';
+                socialIcons.style.opacity = '0';
+                navTexts.forEach(text => text.style.opacity = '0');
+                
+                setTimeout(() => {
+                    sidebar.classList.remove('w-64');
+                    sidebar.classList.add('w-16');
+                    mainContent.classList.remove('md:ml-64');
+                    mainContent.classList.add('md:ml-16');
+                }, 150);
+                
+                // Change icon
+                toggleIcon.classList.remove('fa-chevron-left');
+                toggleIcon.classList.add('fa-chevron-right');
+                
+                sidebarCollapsed = true;
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Audio Player Functionality
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause');
+        const playPauseIcon = document.getElementById('play-pause-icon');
+        const progressBar = document.getElementById('progress-bar');
+        const volumeControl = document.getElementById('volume-control');
+        const currentTrackTitle = document.getElementById('current-track-title');
+        const currentTrackArtist = document.getElementById('current-track-artist');
+        const currentTrackCover = document.getElementById('current-track-cover');
+        const prevTrackBtn = document.getElementById('prev-track');
+        const nextTrackBtn = document.getElementById('next-track');
+        
+        // Complete tracks data from audio directory
+        const tracks = [
+            // Beats
+            { id: 'beat1', title: 'Attention', artist: '', category: 'beats', cover: 'images/track pic.jpg', duration: '3:45', file: 'audio/beats/Attention.wav' },
+            { id: 'mashup4', title: 'All This Love Back To Sleep', artist: '', category: 'mashups', cover: 'images/random chill mix 1-28-20.jpg', duration: '4:45', file: 'audio/mashups/All This Love Back To Sleep.mp3' },
+            { id: 'beat3', title: 'Deliver', artist: '', category: 'beats', cover: 'images/pic2.jpg', duration: '3:28', file: 'audio/beats/Deliver.mp3' },
+            { id: 'beat4', title: "Don't Be Mad At Me", artist: '', category: 'beats', cover: 'images/pic3.jpg', duration: '4:05', file: 'audio/beats/Don\'t Be Mad At Me.wav' },
+            { id: 'beat5', title: "Don't Care", artist: '', category: 'beats', cover: 'images/pic5.jpg', duration: '3:52', file: 'audio/beats/Don\'t Care.mp3' },
+            { id: 'beat6', title: 'Feeling It', artist: '', category: 'beats', cover: 'images/pic7.jpg', duration: '4:18', file: 'audio/beats/Feeling It.mp3' },
+            { id: 'beat7', title: 'Forgiveness', artist: '', category: 'beats', cover: 'images/dj bossman.jpg', duration: '3:33', file: 'audio/beats/Forgiveness.mp3' },
+            { id: 'beat8', title: 'Free-rev', artist: '', category: 'beats', cover: 'images/track pi.jpg', duration: '4:22', file: 'audio/beats/Free-rev.mp3' },
+            { id: 'beat9', title: 'From The Jump', artist: '', category: 'beats', cover: 'images/dj bossman mashups.jpg', duration: '3:47', file: 'audio/beats/From The Jump.mp3' },
+            { id: 'beat10', title: 'How Does It Feel', artist: '', category: 'beats', cover: 'images/90s rb.jpg', duration: '4:15', file: 'audio/beats/How Does It Feel.mp3' },
+            { id: 'beat11', title: 'Keep Grinding', artist: '', category: 'beats', cover: 'images/blm mix.jpg', duration: '3:58', file: 'audio/beats/Keep Grinding.mp3' },
+            { id: 'beat12', title: 'Big Moves', artist: '', category: 'beats', cover: 'images/The Instrumentals Mix pic.jpg', duration: '4:08', file: 'audio/beats/LANDR-Big Moves-Balanced-Low.mp3' },
+            { id: 'beat13', title: 'Feel Me', artist: '', category: 'beats', cover: 'images/Wine Glass Mix 10-23-20.jpg', duration: '3:42', file: 'audio/beats/LANDR-Feel Me-Balanced-Low.mp3' },
+            { id: 'beat14', title: 'Flava', artist: '', category: 'beats', cover: 'images/Chill Mix 8-29-20 - O.R. Celebration.jpg', duration: '4:25', file: 'audio/beats/LANDR-Flava-Balanced-Low.mp3' },
+            { id: 'beat15', title: 'Gimme da Funk', artist: '', category: 'beats', cover: 'images/disco funk mix.jpg', duration: '3:55', file: 'audio/beats/LANDR-Gimme da Funk-Balanced-Low.mp3' },
+            { id: 'beat16', title: 'In My Head', artist: '', category: 'beats', cover: 'images/country in the hood.jpg', duration: '4:02', file: 'audio/beats/LANDR-In My Head-Balanced-Low.mp3' },
+            { id: 'beat17', title: 'Leave It', artist: '', category: 'beats', cover: 'images/latin mix.jpg', duration: '3:38', file: 'audio/beats/LANDR-Leave It-Balanced-Low.mp3' },
+            { id: 'beat18', title: 'Mesmerized', artist: '', category: 'beats', cover: 'images/ne-yo mix.jpg', duration: '4:18', file: 'audio/beats/LANDR-Mesmerized-Balanced-Low.mp3' },
+            { id: 'beat19', title: 'New Biz', artist: '', category: 'beats', cover: 'images/reggae mix.jpg', duration: '3:51', file: 'audio/beats/LANDR-New Biz-Balanced-Low.mp3' },
+            { id: 'beat20', title: 'Nightlife', artist: '', category: 'beats', cover: 'images/workout mix.jpg', duration: '4:12', file: 'audio/beats/LANDR-Nightlife-Balanced-Low.mp3' },
+            { id: 'beat21', title: 'One Chance', artist: '', category: 'beats', cover: 'images/may i have this dance.jpg', duration: '3:47', file: 'audio/beats/LANDR-One Chance-Balanced-Low-REV_V1.mp3' },
+            { id: 'beat22', title: 'One For Me', artist: '', category: 'beats', cover: 'images/grown & sexy mic.jpg', duration: '4:05', file: 'audio/beats/LANDR-One For Me-Balanced-Low.mp3' },
+            { id: 'beat23', title: 'Roni As It Was', artist: '', category: 'beats', cover: 'images/flashback friday mix 1-29-21.jpg', duration: '3:33', file: 'audio/beats/LANDR-Roni As It Was-Balanced-Low.mp3' },
+            { id: 'beat24', title: 'So Lost', artist: '', category: 'beats', cover: 'images/Grown & Sexy mix 11-4-21.jpg', duration: '4:28', file: 'audio/beats/LANDR-So Lost-Balanced-Low.mp3' },
+            { id: 'beat25', title: 'U Know', artist: '', category: 'beats', cover: 'images/Random Slow Jams 2-24-21.jpg', duration: '3:42', file: 'audio/beats/LANDR-U Know-Balanced-Low.mp3' },
+            { id: 'beat26', title: 'Where You At', artist: '', category: 'beats', cover: 'images/Random Slow Mix 5-12-21.jpg', duration: '4:15', file: 'audio/beats/LANDR-Where You At-Balanced-Low.mp3' },
+            { id: 'beat27', title: 'With You', artist: '', category: 'beats', cover: 'images/random chill mix 12-18-19.jpg', duration: '3:58', file: 'audio/beats/LANDR-With You-Balanced-Low.mp3' },
+            { id: 'beat28', title: 'What I Want', artist: '', category: 'beats', cover: 'images/random chill mix 3-12-20.jpg', duration: '4:08', file: 'audio/beats/LANDR-what i want-Balanced-Low.mp3' },
+            { id: 'beat29', title: 'Love Of Your Own', artist: '', category: 'beats', cover: 'images/random mix 1-20-22.jpg', duration: '3:52', file: 'audio/beats/Love Of Your Own.mp3' },
+            { id: 'beat30', title: 'One For Me (Alt)', artist: '', category: 'beats', cover: 'images/random chill mix 4-16-22.jpg', duration: '4:05', file: 'audio/beats/One For Me.mp3' },
+            { id: 'beat31', title: 'One For Me (WAV)', artist: '', category: 'beats', cover: 'images/random chill mix 5-21-20.jpg', duration: '4:05', file: 'audio/beats/One For Me.wav' },
+            { id: 'beat32', title: 'Right By You', artist: '', category: 'beats', cover: 'images/random chill mix 5-9-20.jpg', duration: '3:47', file: 'audio/beats/Right By You.mp3' },
+            { id: 'beat33', title: 'Say It', artist: '', category: 'beats', cover: 'images/random chill mix 6-17-21.jpg', duration: '4:12', file: 'audio/beats/Say It.mp3' },
+            { id: 'beat34', title: 'Superstar', artist: '', category: 'beats', cover: 'images/random mix 10-14-21.jpg', duration: '3:38', file: 'audio/beats/Superstar.wav' },
+            { id: 'beat35', title: 'Switch', artist: '', category: 'beats', cover: 'images/random chill mix 7-15-20.jpg', duration: '4:25', file: 'audio/beats/Switch.mp3' },
+            { id: 'beat36', title: 'Up To Something', artist: '', category: 'beats', cover: 'images/random chill mix 8-24-21.jpg', duration: '3:55', file: 'audio/beats/Up To Something.mp3' },
+            { id: 'beat37', title: 'Waiting', artist: '', category: 'beats', cover: 'images/random mix 1-1-22.jpg', duration: '4:18', file: 'audio/beats/Waiting.wav' },
+            { id: 'beat38', title: 'Who Do You Love', artist: '', category: 'beats', cover: 'images/random mix 10-21-19.jpg', duration: '3:42', file: 'audio/beats/Who Do You Love(2).mp3' },
+            { id: 'beat39', title: 'The Return', artist: '', category: 'beats', cover: 'images/random mix 10-21-20.jpg', duration: '4:08', file: 'audio/beats/the return.mp3' },
+            
+            // Mashups
+            { id: 'mashup1', title: '2 On Been Waiting', artist: '', category: 'mashups', cover: 'images/vday mix pic 20.jpg', duration: '4:32', file: 'audio/mashups/2 On Been Waiting.mp3' },
+            { id: 'mashup2', title: '24k Magic Encore', artist: '', category: 'mashups', cover: 'images/vday mix pic 22.jpg', duration: '5:15', file: 'audio/mashups/24k Magic Encore.mp3' },
+            { id: 'mashup3', title: 'Aint My Type Of Bad', artist: '', category: 'mashups', cover: 'images/now thats what i call r&b pt 6.jpg', duration: '4:18', file: 'audio/mashups/Aint My Type Of Bad.mp3' },
+            { id: 'mashup5', title: 'Another Saturday Night Perm', artist: '', category: 'mashups', cover: 'images/random chill mix 10-6-22 -- celebrating love.jpg', duration: '4:22', file: 'audio/mashups/Another Saturday Night Perm.mp3' },
+            { id: 'mashup6', title: 'Arabian Trap', artist: '', category: 'mashups', cover: 'images/random mix 10-27-22.jpg', duration: '3:58', file: 'audio/mashups/Arabian Trap.mp3' },
+            { id: 'mashup7', title: 'Attention Fly As Me', artist: '', category: 'mashups', cover: 'images/random mix 11-3-22.jpg', duration: '4:12', file: 'audio/mashups/Attention Fly As Me.mp3' },
+            { id: 'mashup8', title: 'Attention', artist: '', category: 'mashups', cover: 'images/random mix 12-5-19.jpg', duration: '3:45', file: 'audio/mashups/Attention.mp3' },
+            { id: 'mashup9', title: 'Baby Boy Techno', artist: '', category: 'mashups', cover: 'images/random mix 2-18-21.jpg', duration: '4:28', file: 'audio/mashups/Baby Boy Techno.mp3' },
+            { id: 'mashup10', title: 'Beautiful Legs Shakin', artist: '', category: 'mashups', cover: 'images/random mix 2-27-20.jpg', duration: '4:15', file: 'audio/mashups/Beautiful Legs Shakin.mp3' },
+            { id: 'mashup11', title: 'Bedroom Anytime', artist: '', category: 'mashups', cover: 'images/random mix 3-12-20.jpg', duration: '4:08', file: 'audio/mashups/Bedroom Anytime.mp3' },
+            
+            // Mixes
+            { id: 'mix1', title: '90s R&B Mix', artist: '', category: 'mixes', cover: 'images/90s rb.jpg', duration: '45:32', file: 'audio/mixes/90s R&B Mix.mp3' },
+            { id: 'mix2', title: 'C.B. - N.E. - Prince - MJ Concert', artist: '', category: 'mixes', cover: 'images/random mix 2-28-20.jpg', duration: '52:18', file: 'audio/mixes/C.B. - N.E. - Prince - MJ concert.mp3' },
+            { id: 'mix3', title: 'Disco - Funk Mix', artist: '', category: 'mixes', cover: 'images/disco funk mix.jpg', duration: '38:45', file: 'audio/mixes/Disco - Funk Mix 8-22-20.mp3' },
+            { id: 'mix4', title: 'Flashback Friday Mix', artist: '', category: 'mixes', cover: 'images/flashback friday mix 1-29-21.jpg', duration: '42:12', file: 'audio/mixes/Flashback Friday Mix 1-29-21.mp3' },
+            { id: 'mix5', title: 'Grown & Sexy Mix', artist: '', category: 'mixes', cover: 'images/Grown & Sexy mix 11-4-21.jpg', duration: '48:33', file: 'audio/mixes/Grown & Sexy Mix 11-4-21.mp3' },
+            { id: 'mix6', title: 'Latin Music Mix', artist: '', category: 'mixes', cover: 'images/latin mix.jpg', duration: '35:28', file: 'audio/mixes/Latin Music Mix 3-21-20.mp3' },
+            { id: 'mix7', title: 'May I Have This Dance - Slow Jams', artist: '', category: 'mixes', cover: 'images/may i have this dance.jpg', duration: '41:15', file: 'audio/mixes/May I Have This Dance - Slow Jams 1-.mp3' },
+            { id: 'mix8', title: 'RNP Halloween Boss Mix', artist: '', category: 'mixes', cover: 'images/random mix 2-5-20.jpg', duration: '44:22', file: 'audio/mixes/RNP Halloween_Boss mix.mp3' },
+            { id: 'mix9', title: 'Random Chill Mix - Celebration', artist: '', category: 'mixes', cover: 'images/random chill mix 10-6-22 -- celebrating love.jpg', duration: '39:45', file: 'audio/mixes/Random Chill Mix 10-6-22 -- Celebrat.mp3' },
+            { id: 'mix10', title: 'Random Chill Mix Dec 2019', artist: '', category: 'mixes', cover: 'images/random chill mix 12-18-19.jpg', duration: '43:18', file: 'audio/mixes/Random Chill Mix 12-18-19.mp3' },
+            { id: 'mix11', title: 'Reggaeton Mix', artist: '', category: 'mixes', cover: 'images/reggae mix.jpg', duration: '36:52', file: 'audio/mixes/Reggaeton Mix 3-3-21.mp3' },
+            { id: 'mix12', title: 'Serena Mix', artist: '', category: 'mixes', cover: 'images/random mix 2-9-21.jpg', duration: '47:33', file: 'audio/mixes/Serena Mix.mp3' },
+            { id: 'mix13', title: "Valentine's Day Mix 2020", artist: '', category: 'mixes', cover: 'images/vday mix pic 20.jpg', duration: '51:28', file: 'audio/mixes/Valentine\'s Day Mix 2020.mp3' },
+            { id: 'mix14', title: "Valentines Day Mix '22", artist: '', category: 'mixes', cover: 'images/vday mix pic 22.jpg', duration: '49:15', file: 'audio/mixes/Valentines Day Mix \'22.mp3' },
+            { id: 'mix15', title: 'Wine Glass Mix', artist: '', category: 'mixes', cover: 'images/Wine Glass Mix 10-23-20.jpg', duration: '40:12', file: 'audio/mixes/Wine Glass Mix 10-23-20.mp3' },
+            { id: 'mix16', title: 'Workout Mix', artist: '', category: 'mixes', cover: 'images/workout mix.jpg', duration: '33:45', file: 'audio/mixes/Workout Mix 3-18-20.mp3' }
+        ];
+        
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        
+        function togglePlayPause() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            } else {
+                audioPlayer.play();
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        // Update progress bar
+        audioPlayer.addEventListener('timeupdate', updateProgressBar);
+        
+        function updateProgressBar() {
+            const { currentTime, duration } = audioPlayer;
+            const progressPercent = (currentTime / duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        }
+        
+        // Click on progress bar to seek
+        document.querySelector('.progress-container').addEventListener('click', seek);
+        
+        function seek(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            audioPlayer.currentTime = (clickX / width) * duration;
+        }
+        
+        // Volume control
+        volumeControl.addEventListener('input', setVolume);
+        
+        function setVolume() {
+            audioPlayer.volume = this.value / 100;
+        }
+        
+        // Play a specific track
+        function playTrack(trackId) {
+            const trackIndex = tracks.findIndex(track => track.id === trackId);
+            if (trackIndex !== -1) {
+                currentTrackIndex = trackIndex;
+                loadTrack(currentTrackIndex);
+                togglePlayPause();
+            }
+        }
+        
+        // Load track
+        function loadTrack(trackIndex) {
+            const track = tracks[trackIndex];
+            audioPlayer.src = track.file;
+            currentTrackTitle.textContent = track.title;
+            currentTrackArtist.textContent = track.artist;
+            currentTrackCover.src = track.cover;
+            
+            // Update progress bar
+            progressBar.style.width = '0%';
+            
+            // If player was playing, continue playing
+            if (isPlaying) {
+                audioPlayer.play();
+            }
+        }
+        
+        // Previous track
+        prevTrackBtn.addEventListener('click', prevTrack);
+        
+        function prevTrack() {
+            currentTrackIndex--;
+            if (currentTrackIndex < 0) {
+                currentTrackIndex = tracks.length - 1;
+            }
+            loadTrack(currentTrackIndex);
+            if (isPlaying) {
+                audioPlayer.play();
+            }
+        }
+        
+        // Next track
+        nextTrackBtn.addEventListener('click', nextTrack);
+        
+        function nextTrack() {
+            currentTrackIndex++;
+            if (currentTrackIndex > tracks.length - 1) {
+                currentTrackIndex = 0;
+            }
+            loadTrack(currentTrackIndex);
+            if (isPlaying) {
+                audioPlayer.play();
+            }
+        }
+        
+        // When track ends, play next one
+        audioPlayer.addEventListener('ended', nextTrack);
+        
+        // Initialize with first track
+        loadTrack(currentTrackIndex);
+        
+        // Update track count display
+        function updateTrackCount(count) {
+            const trackCountElement = document.getElementById('track-count');
+            if (count === 0) {
+                trackCountElement.textContent = 'No tracks found';
+            } else if (count === 1) {
+                trackCountElement.textContent = 'Showing 1 track';
+            } else {
+                trackCountElement.textContent = `Showing ${count} tracks`;
+            }
+        }
+        
+        // Populate tracks list
+        function populateTracksGrid() {
+            const tracksList = document.querySelector('#media .space-y-2');
+            if (!tracksList) return;
+            
+            tracksList.innerHTML = '';
+            
+            // Sort tracks alphabetically by title for 'All' view
+            const sortedTracks = [...tracks].sort((a, b) => a.title.localeCompare(b.title));
+            
+            // Update track count
+            updateTrackCount(sortedTracks.length);
+            
+            sortedTracks.forEach(track => {
+                const trackItem = document.createElement('div');
+                trackItem.className = 'bg-gray-900 bg-opacity-50 rounded-lg border border-gray-800 hover:border-[var(--electric-cyan)] transition p-2';
+                trackItem.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3 flex-1 min-w-0">
+                            <button onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-sm truncate">${track.title}</h3>
+                                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                                    <span class="bg-[var(--${track.category === 'beats' ? 'vibrant-orange' : track.category === 'mashups' ? 'magenta-highlight' : 'electric-cyan'})] text-white text-xs px-2 py-1 rounded capitalize">${track.category}</span>
+                                    <span>${track.duration}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 flex-shrink-0">
+                            <button onclick="shareTrack('${track.title}', 'Check out this amazing track!')" class="text-gray-400 hover:text-[var(--electric-cyan)] transition p-2">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button onclick="downloadTrack('${track.id}')" class="text-gray-400 hover:text-[var(--vibrant-orange)] transition p-2">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                tracksList.appendChild(trackItem);
+            });
+        }
+        
+        // Filter tracks by category
+        function filterTracks(category) {
+            const tracksList = document.querySelector('#media .space-y-2');
+            if (!tracksList) return;
+            
+            const filteredTracks = category === 'all' ? tracks : tracks.filter(track => track.category === category);
+            
+            // Sort tracks alphabetically by title
+            const sortedTracks = [...filteredTracks].sort((a, b) => a.title.localeCompare(b.title));
+            
+            // Update track count
+            updateTrackCount(sortedTracks.length);
+            
+            tracksList.innerHTML = '';
+            
+            sortedTracks.forEach(track => {
+                const trackItem = document.createElement('div');
+                trackItem.className = 'bg-gray-900 bg-opacity-50 rounded-lg border border-gray-800 hover:border-[var(--electric-cyan)] transition p-2';
+                trackItem.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3 flex-1 min-w-0">
+                            <button onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
+                                <i class="fas fa-play text-xs"></i>
+                            </button>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-sm truncate">${track.title}</h3>
+                                <div class="flex items-center space-x-2 text-xs text-gray-400">
+                                    <span class="bg-[var(--${track.category === 'beats' ? 'vibrant-orange' : track.category === 'mashups' ? 'magenta-highlight' : 'electric-cyan'})] text-white text-xs px-2 py-1 rounded capitalize">${track.category}</span>
+                                    <span>${track.duration}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 flex-shrink-0">
+                            <button onclick="shareTrack('${track.title}', 'Check out this amazing track!')" class="text-gray-400 hover:text-[var(--electric-cyan)] transition p-2">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button onclick="downloadTrack('${track.id}')" class="text-gray-400 hover:text-[var(--vibrant-orange)] transition p-2">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                tracksList.appendChild(trackItem);
+            });
+        }
+        
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            
+            // Hide video and show image
+            lightboxVideo.classList.add('hidden');
+            lightboxImage.classList.remove('hidden');
+            lightboxImage.src = imageSrc;
+            
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function openVideoLightbox(videoSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            
+            // Hide image and show video
+            lightboxImage.classList.add('hidden');
+            lightboxVideo.classList.remove('hidden');
+            lightboxVideo.querySelector('source').src = videoSrc;
+            lightboxVideo.load();
+            
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            
+            // Pause video if playing
+            lightboxVideo.pause();
+            lightboxVideo.currentTime = 0;
+            
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+        
+        // Load More Gallery Items functionality
+        let currentGalleryPage = 1;
+        const itemsPerPage = 8;
+        
+        // Additional video files for load more functionality
+        const additionalVideos = [
+            'videos/Snapchat-1969830959.mp4',
+            'videos/Snapchat-1137763621.mp4',
+            'videos/Snapchat-1406377752.mp4',
+            'videos/Snapchat-14829082.mp4'
+        ];
+        
+        function loadMoreGalleryItems() {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            
+            // Calculate which videos to show next
+            const startIndex = currentGalleryPage * itemsPerPage;
+            const endIndex = startIndex + 4; // Load 4 more items
+            const videosToAdd = additionalVideos.slice(startIndex - itemsPerPage, endIndex - itemsPerPage);
+            
+            if (videosToAdd.length === 0) {
+                // No more videos to load
+                loadMoreBtn.innerHTML = '<i class="fas fa-check mr-2"></i>All Videos Loaded';
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                return;
+            }
+            
+            // Add new video items to the gallery
+            videosToAdd.forEach((videoSrc, index) => {
+                const videoNumber = startIndex + index + 1;
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item overflow-hidden rounded-lg cursor-pointer transform hover:scale-105 transition duration-300 relative';
+                galleryItem.onclick = () => openVideoLightbox(videoSrc);
+                
+                galleryItem.innerHTML = `
+                    <video class="w-full h-48 object-cover hover:opacity-80 transition" muted>
+                        <source src="${videoSrc}" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-50 transition">
+                        <i class="fas fa-play text-white text-2xl"></i>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(galleryItem);
+            });
+            
+            currentGalleryPage++;
+            
+            // Update button text
+            const remainingVideos = additionalVideos.length - (currentGalleryPage - 1) * 4;
+            if (remainingVideos <= 0) {
+                loadMoreBtn.innerHTML = '<i class="fas fa-check mr-2"></i>All Videos Loaded';
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                loadMoreBtn.innerHTML = `<i class="fas fa-plus mr-2"></i>Load More (${Math.min(4, remainingVideos)} remaining)`;
+            }
+        }
+        
+        // Share functionality
+        function shareTrack(title, text) {
+            const shareModal = document.getElementById('share-modal');
+            const shareTitle = document.getElementById('share-track-title');
+            const facebookShare = document.getElementById('facebook-share');
+            const twitterShare = document.getElementById('twitter-share');
+            const instagramShare = document.getElementById('instagram-share');
+            const shareLink = document.getElementById('share-link');
+            
+            shareTitle.textContent = `Share "${title}" with your friends!`;
+            
+            const url = encodeURIComponent(window.location.href);
+            const shareText = encodeURIComponent(text);
+            
+            facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${shareText}`;
+            twitterShare.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${url}`;
+            instagramShare.href = `https://www.instagram.com/?url=${url}`;
+            shareLink.value = window.location.href;
+            
+            shareModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeShareModal() {
+            document.getElementById('share-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function copyTrackLink() {
+            const shareLink = document.getElementById('share-link');
+            shareLink.select();
+            document.execCommand('copy');
+            
+            // Show feedback
+            const originalText = shareLink.value;
+            shareLink.value = 'Link copied!';
+            setTimeout(() => {
+                shareLink.value = originalText;
+            }, 2000);
+        }
+        
+        // Download track
+        function downloadTrack(trackId) {
+            const track = tracks.find(t => t.id === trackId);
+            if (track) {
+                // In a real implementation, this would trigger a download
+                // For demo purposes, we'll just show an alert
+                alert(`Downloading "${track.title}" by ${track.artist}`);
+                
+                // Track download in localStorage
+                let downloads = localStorage.getItem('trackDownloads') || '{}';
+                downloads = JSON.parse(downloads);
+                downloads[trackId] = (downloads[trackId] || 0) + 1;
+                localStorage.setItem('trackDownloads', JSON.stringify(downloads));
+            }
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const colors = ['var(--electric-cyan)', 'var(--vibrant-orange)', 'var(--deep-purple)', 'var(--magenta-highlight)'];
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                
+                // Apply styles
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.backgroundColor = color;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Create audio visualizer bars
+        function createVisualizer() {
+            const visualizer = document.getElementById('hero-visualizer');
+            for (let i = 0; i < 30; i++) {
+                const bar = document.createElement('div');
+                bar.classList.add('visualizer-bar');
+                bar.style.height = `${Math.random() * 30 + 5}px`;
+                bar.style.animation = `visualize ${Math.random() * 2 + 1}s ease-in-out infinite alternate`;
+                bar.style.animationDelay = `${Math.random() * 2}s`;
+                visualizer.appendChild(bar);
+            }
+        }
+        
+        // Search functionality
+        function searchTracks() {
+            const searchInput = document.querySelector('input[placeholder="Search tracks..."]');
+            const filterSelect = document.querySelector('select');
+            
+            const searchQuery = searchInput.value.toLowerCase().trim();
+            const selectedCategory = filterSelect.value.toLowerCase();
+            
+            let filteredTracks = tracks;
+            
+            // Apply search filter
+            if (searchQuery) {
+                filteredTracks = filteredTracks.filter(track => {
+                    return track.title.toLowerCase().includes(searchQuery) ||
+                           track.artist.toLowerCase().includes(searchQuery) ||
+                           track.category.toLowerCase().includes(searchQuery);
+                });
+            }
+            
+            // Apply category filter from dropdown
+            if (selectedCategory !== 'all categories') {
+                filteredTracks = filteredTracks.filter(track => {
+                    return track.category.toLowerCase() === selectedCategory;
+                });
+            }
+            
+            // Sort alphabetically
+            filteredTracks.sort((a, b) => a.title.localeCompare(b.title));
+            
+            displayFilteredTracks(filteredTracks);
+        }
+        
+        // Display filtered tracks
+        function displayFilteredTracks(tracksToDisplay) {
+            const tracksList = document.querySelector('.space-y-2');
+            tracksList.innerHTML = '';
+            
+            // Update track count
+            updateTrackCount(tracksToDisplay.length);
+            
+            tracksToDisplay.forEach(track => {
+                const trackItem = document.createElement('div');
+                trackItem.className = 'bg-gray-900 bg-opacity-50 rounded-lg border border-gray-800 hover:border-[var(--electric-cyan)] transition p-2';
+            trackItem.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 flex-1 min-w-0">
+                        <button onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
+                            <i class="fas fa-play text-xs"></i>
+                        </button>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-semibold text-sm truncate">${track.title}</h3>
+                            <div class="flex items-center space-x-2 text-xs text-gray-400">
+                                    <span class="bg-[var(--${track.category === 'beats' ? 'vibrant-orange' : track.category === 'mashups' ? 'magenta-highlight' : 'electric-cyan'})] text-white text-xs px-2 py-1 rounded capitalize">${track.category}</span>
+                                    <span>${track.duration}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 flex-shrink-0">
+                            <button onclick="shareTrack('${track.title}', 'Check out this amazing track!')" class="text-gray-400 hover:text-[var(--electric-cyan)] transition p-2">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button onclick="downloadTrack('${track.id}')" class="text-gray-400 hover:text-[var(--vibrant-orange)] transition p-2">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                tracksList.appendChild(trackItem);
+            });
+            
+            // Show "No tracks found" message if no results
+            if (tracksToDisplay.length === 0) {
+                tracksList.innerHTML = '<div class="text-center py-12"><p class="text-gray-400 text-lg">No tracks found matching your search criteria.</p></div>';
+            }
+        }
+
+        // Populate Featured Tracks section
+        function populateFeaturedTracks() {
+            const featuredGrid = document.getElementById('featured-tracks-grid');
+            if (!featuredGrid) return;
+            
+            // Select 4 featured tracks - mix of categories for variety
+            const featuredTracks = [
+                tracks.find(t => t.category === 'mixes') || tracks[0],
+                tracks.find(t => t.category === 'beats') || tracks[1],
+                tracks.find(t => t.category === 'mashups') || tracks[2],
+                tracks.find(t => t.category === 'beats' && t.id !== (tracks.find(t => t.category === 'beats') || tracks[1]).id) || tracks[3]
+            ].filter(Boolean).slice(0, 4);
+            
+            featuredGrid.innerHTML = '';
+            
+            featuredTracks.forEach((track, index) => {
+                const playCount = Math.floor(Math.random() * 20000) + 5000; // Random play count for demo
+                const trackCard = document.createElement('div');
+                trackCard.className = 'track-card bg-gray-900 bg-opacity-50 rounded-xl p-4 hover:bg-opacity-70 transition-all duration-300 relative overflow-hidden group h-full flex flex-col';
+                trackCard.innerHTML = `
+                    <div class="relative mb-4 rounded-lg overflow-hidden bg-gray-800 h-64 flex-shrink-0">
+                        <img src="${track.cover}" alt="${track.title} Cover" class="w-full h-full object-cover">
+                        <button class="play-icon absolute bottom-4 right-4 w-12 h-12 rounded-full gradient-bg flex items-center justify-center glow-cyan hover:scale-110 transition-transform" onclick="playTrack('${track.id}')">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                         <h3 class="text-xl font-bold mb-1">${track.title}</h3>
+                         <p class="text-gray-400 text-sm mb-4 flex-grow">DJ Bossman • ${track.duration}</p>
+                         <div class="flex justify-between items-center mt-auto">
+                             <div class="flex space-x-2">
+                                 <button class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[var(--electric-cyan)] transition" onclick="downloadTrack('${track.id}')">
+                                     <i class="fas fa-download text-sm"></i>
+                                 </button>
+                                 <button class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[var(--vibrant-orange)] transition" onclick="shareTrack('${track.title}', 'Check out this amazing track by DJ Bossman!')">
+                                     <i class="fas fa-share-alt text-sm"></i>
+                                 </button>
+                             </div>
+                             <span class="text-xs text-gray-500">${(playCount / 1000).toFixed(1)}K plays</span>
+                         </div>
+                     </div>
+                `;
+                featuredGrid.appendChild(trackCard);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            createVisualizer();
+            populateTracksGrid();
+            populateFeaturedTracks();
+            
+            // Add event listeners for search input and filter dropdown
+            const searchInput = document.querySelector('input[placeholder="Search tracks..."]');
+            const filterSelect = document.querySelector('select');
+            
+            searchInput.addEventListener('input', searchTracks);
+            filterSelect.addEventListener('change', searchTracks);
+            
+            // Add event listeners for tab buttons
+            const tabButtons = document.querySelectorAll('#media .flex.border-b button');
+            tabButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-[var(--electric-cyan)]', 'text-[var(--electric-cyan)]');
+                        btn.classList.add('border-transparent', 'text-gray-400');
+                    });
+                    
+                    // Add active class to clicked button
+                    button.classList.add('border-[var(--electric-cyan)]', 'text-[var(--electric-cyan)]');
+                    button.classList.remove('border-transparent', 'text-gray-400');
+                    
+                    // Clear search and filter when using tabs
+                    searchInput.value = '';
+                    filterSelect.value = 'All Categories';
+                    
+                    // Filter tracks based on button
+                    const categories = ['all', 'beats', 'mixes', 'mashups'];
+                    filterTracks(categories[index]);
+                });
+            });
+            
+            // Add animation for visualizer bars
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    50% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(180deg); }
+                    100% { transform: translate(0, 0) rotate(360deg); }
+                }
+                
+                @keyframes visualize {
+                    0% { height: ${Math.random() * 10 + 5}px; }
+                    100% { height: ${Math.random() * 30 + 20}px; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
