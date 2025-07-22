@@ -2104,8 +2104,21 @@
             const instagramText = encodeURIComponent(`🎵 Currently obsessed with "${title}" by DJ Bossman! 🔥\n\nThis track has been on repeat all day - the production is insane! 🎧✨\n\n#DJBossman #NewMusic #Beats #Fire #MusicIsLife #NowPlaying`);
             
             // Set up proper social media sharing URLs
-            facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${facebookText}`;
-            twitterShare.href = `https://twitter.com/intent/tweet?text=${twitterText}&url=${url}`;
+            // For Facebook, use a more reliable approach that works with localhost
+            facebookShare.onclick = function(e) {
+                e.preventDefault();
+                const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${facebookText}`;
+                window.open(fbUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+                return false;
+            };
+            
+            // For Twitter, use popup approach for consistency
+            twitterShare.onclick = function(e) {
+                e.preventDefault();
+                const twitterUrl = `https://twitter.com/intent/tweet?text=${twitterText}&url=${url}`;
+                window.open(twitterUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+                return false;
+            };
             
             // For Instagram, copy text to clipboard and open Instagram
             instagramShare.onclick = function(e) {
