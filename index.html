@@ -102,13 +102,40 @@
         
         .progress-container {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            position: relative;
+            overflow: visible;
+            transition: height 0.2s ease;
+        }
+        
+        .progress-container:hover {
+            height: 6px !important;
+        }
+        
+        .progress-container:hover .progress-bar {
+            filter: brightness(1.2);
         }
         
         .progress-bar {
             background: linear-gradient(90deg, var(--electric-cyan), var(--deep-purple));
-            height: 4px;
+            height: 100%;
             width: 0%;
             transition: width 0.1s linear;
+            border-radius: 2px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .progress-thumb {
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        
+        .progress-hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
         }
         
         .volume-slider {
@@ -490,28 +517,29 @@
                     </a>
                 </li>
             </ul>
-        </nav>
-        
-        <div class="mt-auto pt-6 border-t border-gray-800">
-            <h3 id="social-title" class="text-sm uppercase text-gray-400 mb-3 transition-opacity duration-300">Follow DJ Bossman</h3>
-            <div id="social-icons" class="flex space-x-4 transition-opacity duration-300">
-                <a href="http://www.facebook.com/djbossmanRDB" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1877F2] transition">
-                    <i class="fab fa-facebook-f text-sm"></i>
-                </a>
-                <a href="http://instagram.com/Randydaboss10" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#E1306C] transition">
-                    <i class="fab fa-instagram text-sm"></i>
-                </a>
-                <a href="http://www.twitter.com/Randydaboss" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DA1F2] transition">
-                    <i class="fab fa-twitter text-sm"></i>
-                </a>
-                <a href="https://soundcloud.com/djbossmanrdb" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#FF8800] transition">
-                    <i class="fab fa-soundcloud text-sm"></i>
-                </a>
-                <a href="http://www.spotify.com/" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DB954] transition">
-                    <i class="fab fa-spotify text-sm"></i>
-                </a>
+            
+            <!-- Social Media Section moved here -->
+            <div class="mt-6 pt-6 border-t border-gray-800">
+                <h3 id="social-title" class="text-sm uppercase text-gray-400 mb-3 transition-opacity duration-300" style="display: none; opacity: 0;">Follow DJ Bossman</h3>
+                <div id="social-icons" class="flex space-x-4 transition-opacity duration-300" style="display: none; opacity: 0;">
+                    <a href="http://www.facebook.com/djbossmanRDB" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1877F2] transition">
+                        <i class="fab fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="http://instagram.com/Randydaboss10" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#E1306C] transition">
+                        <i class="fab fa-instagram text-sm"></i>
+                    </a>
+                    <a href="http://www.twitter.com/Randydaboss" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DA1F2] transition">
+                        <i class="fab fa-twitter text-sm"></i>
+                    </a>
+                    <a href="https://soundcloud.com/djbossmanrdb" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#FF8800] transition">
+                        <i class="fab fa-soundcloud text-sm"></i>
+                    </a>
+                    <a href="http://www.spotify.com/" target="_blank" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DB954] transition">
+                        <i class="fab fa-spotify text-sm"></i>
+                    </a>
+                </div>
             </div>
-        </div>
+        </nav>
     </div>
     
     <!-- Mobile Header -->
@@ -920,40 +948,7 @@
     </main>
     
     <!-- Share Modal -->
-    <div id="share-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-        <div class="bg-gray-900 rounded-xl p-8 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-6">
-                <h3 id="share-track-title" class="text-xl font-bold">Share Track</h3>
-                <button onclick="closeShareModal()" class="text-gray-400 hover:text-white">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="space-y-4 mb-6">
-                <a id="facebook-share" href="#" target="_blank" class="flex items-center space-x-3 p-3 rounded-lg bg-[#1877F2] hover:bg-opacity-80 transition">
-                    <i class="fab fa-facebook-f"></i>
-                    <span>Share on Facebook</span>
-                </a>
-                
-                <a id="twitter-share" href="#" target="_blank" class="flex items-center space-x-3 p-3 rounded-lg bg-[#1DA1F2] hover:bg-opacity-80 transition">
-                    <i class="fab fa-twitter"></i>
-                    <span>Share on Twitter</span>
-                </a>
-                
-                <a id="instagram-share" href="#" target="_blank" class="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-[#833AB4] to-[#E1306C] hover:opacity-80 transition">
-                    <i class="fab fa-instagram"></i>
-                    <span>Share on Instagram</span>
-                </a>
-            </div>
-            
-            <div class="flex items-center space-x-2">
-                <input id="share-link" type="text" class="flex-1 bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm" readonly>
-                <button onclick="copyTrackLink()" class="px-4 py-2 bg-[var(--electric-cyan)] text-black rounded hover:opacity-80 transition">
-                    Copy
-                </button>
-            </div>
-        </div>
-    </div>
+
     
     <!-- Lightbox -->
     <div id="lightbox" class="hidden fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
@@ -970,11 +965,19 @@
     </div>
     
     <!-- Audio Player -->
-    <div class="audio-player fixed bottom-0 left-0 right-0 h-24 sm:h-20 bg-black bg-opacity-95 border-t border-gray-800 flex items-center px-3 sm:px-4 z-30 backdrop-blur-md">
+    <div class="audio-player fixed bottom-0 left-0 right-0 h-32 sm:h-28 bg-black bg-opacity-95 border-t border-gray-800 flex items-center px-3 sm:px-4 z-50 backdrop-blur-md">
         <div class="container mx-auto flex flex-col">
-            <!-- Progress Bar -->
-            <div class="progress-container w-full h-1 mb-1 sm:mb-2 cursor-pointer">
-                <div class="progress-bar" id="progress-bar"></div>
+            <!-- Progress Bar with Time Display -->
+            <div class="w-full mb-1 sm:mb-2">
+                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+                <div class="progress-container w-full h-1 cursor-pointer relative group" id="main-progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                    <div class="progress-hover absolute top-0 left-0 w-full h-1 bg-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    <div class="progress-thumb absolute top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg" id="progress-thumb"></div>
+                </div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -990,7 +993,7 @@
                 
                 <!-- Controls -->
                 <div class="flex items-center justify-center space-x-3 sm:space-x-6 flex-shrink-0">
-                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110 hidden sm:block">
+                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110" id="shuffle-btn" title="Shuffle">
                         <i class="fas fa-random text-sm"></i>
                     </button>
                     <button class="text-gray-400 hover:text-white transition transform hover:scale-110" id="prev-track">
@@ -1002,21 +1005,18 @@
                     <button class="text-gray-400 hover:text-white transition transform hover:scale-110" id="next-track">
                         <i class="fas fa-step-forward text-sm"></i>
                     </button>
-                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110 hidden sm:block">
+                    <button class="text-gray-400 hover:text-white transition transform hover:scale-110 relative" id="repeat-btn" title="Repeat">
                         <i class="fas fa-redo text-sm"></i>
                     </button>
                 </div>
                 
                 <!-- Volume and Other -->
                 <div class="flex items-center justify-end space-x-2 sm:space-x-4 flex-1 min-w-0">
-                    <button class="text-gray-400 hover:text-white transition hidden md:block">
-                        <i class="fas fa-list-ol text-sm"></i>
-                    </button>
                     <div class="flex items-center space-x-2 w-16 sm:w-24 hidden sm:flex">
                         <i class="fas fa-volume-up text-gray-400 text-xs"></i>
                         <input type="range" min="0" max="100" value="80" class="volume-slider" id="volume-control">
                     </div>
-                    <button class="text-gray-400 hover:text-white transition hidden lg:block">
+                    <button class="text-gray-400 hover:text-white transition" id="fullscreen-btn" title="Fullscreen">
                         <i class="fas fa-expand text-sm"></i>
                     </button>
                 </div>
@@ -1030,7 +1030,7 @@
 
     
     <!-- Share Modal -->
-    <div id="share-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden p-4">
+    <div id="share-modal" class="fixed inset-0 bg-black bg-opacity-80 z-[60] flex items-center justify-center hidden p-4">
         <div class="bg-gray-900 rounded-xl p-4 sm:p-6 max-w-md w-full border border-gray-800">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg sm:text-xl font-bold gradient-text">Share Track</h3>
@@ -1177,7 +1177,9 @@
                 setTimeout(() => {
                     sidebarTitle.style.opacity = '1';
                     socialTitle.style.opacity = '1';
+                    socialTitle.style.display = 'block';
                     socialIcons.style.opacity = '1';
+                    socialIcons.style.display = 'flex';
                     navTexts.forEach(text => text.style.opacity = '1');
                 }, 150);
                 
@@ -1190,7 +1192,9 @@
                 // Collapse sidebar
                 sidebarTitle.style.opacity = '0';
                 socialTitle.style.opacity = '0';
+                socialTitle.style.display = 'none';
                 socialIcons.style.opacity = '0';
+                socialIcons.style.display = 'none';
                 navTexts.forEach(text => text.style.opacity = '0');
                 
                 setTimeout(() => {
@@ -1325,6 +1329,29 @@
                 playPauseIcon.classList.add('fa-pause');
             }
             isPlaying = !isPlaying;
+            
+            // Update Now Playing view play/pause button if open
+            if (isNowPlayingOpen) {
+                const npPlayBtn = document.getElementById('np-play-btn');
+                if (npPlayBtn) {
+                    if (isPlaying) {
+                        npPlayBtn.innerHTML = '<i class="fas fa-pause text-2xl"></i>';
+                    } else {
+                        npPlayBtn.innerHTML = '<i class="fas fa-play text-2xl"></i>';
+                    }
+                }
+            }
+            
+            // Update track icons in media library
+            updateTrackIcons();
+        }
+        
+        // Format time helper function
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
         }
         
         // Update progress bar
@@ -1334,23 +1361,160 @@
             const { currentTime, duration } = audioPlayer;
             const progressPercent = (currentTime / duration) * 100;
             progressBar.style.width = `${progressPercent}%`;
+            
+            // Update main player time displays
+            const currentTimeDisplay = document.getElementById('current-time');
+            const totalTimeDisplay = document.getElementById('total-time');
+            const progressThumb = document.getElementById('progress-thumb');
+            
+            if (currentTimeDisplay) currentTimeDisplay.textContent = formatTime(currentTime);
+            if (totalTimeDisplay) totalTimeDisplay.textContent = formatTime(duration);
+            if (progressThumb) progressThumb.style.left = `${progressPercent}%`;
+            
+            // Update Now Playing view progress if open
+            if (isNowPlayingOpen) {
+                const npProgress = document.getElementById('np-progress');
+                const npCurrentTime = document.getElementById('np-current-time');
+                const npTotalTime = document.getElementById('np-total-time');
+                const npThumb = document.getElementById('np-progress-thumb');
+                
+                if (npProgress) npProgress.style.width = progressPercent + '%';
+                if (npCurrentTime) npCurrentTime.textContent = formatTime(currentTime);
+                if (npTotalTime) npTotalTime.textContent = formatTime(duration);
+                if (npThumb) npThumb.style.left = `${progressPercent}%`;
+            }
         }
         
+        // Enhanced progress bar interaction
+        let isDragging = false;
+        const mainProgressContainer = document.getElementById('main-progress-container');
+        
         // Click on progress bar to seek
-        document.querySelector('.progress-container').addEventListener('click', seek);
+        mainProgressContainer.addEventListener('click', seek);
+        mainProgressContainer.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDrag);
         
         function seek(e) {
-            const width = this.clientWidth;
-            const clickX = e.offsetX;
+            if (isDragging) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
             const duration = audioPlayer.duration;
-            audioPlayer.currentTime = (clickX / width) * duration;
+            if (duration) {
+                audioPlayer.currentTime = (clickX / width) * duration;
+            }
+        }
+        
+        function startDrag(e) {
+            isDragging = true;
+            e.preventDefault();
+            updateSeekPosition(e);
+        }
+        
+        function drag(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            updateSeekPosition(e);
+        }
+        
+        function stopDrag() {
+            isDragging = false;
+        }
+        
+        function updateSeekPosition(e) {
+            const rect = mainProgressContainer.getBoundingClientRect();
+            const clickX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+            const width = rect.width;
+            const duration = audioPlayer.duration;
+            if (duration) {
+                audioPlayer.currentTime = (clickX / width) * duration;
+            }
+        }
+        
+        // Enhanced Now Playing progress bar interaction
+        let npIsDragging = false;
+        function setupNowPlayingSeek() {
+            const npProgressContainer = document.getElementById('np-progress-container');
+            if (npProgressContainer && !npProgressContainer.hasAttribute('data-seek-setup')) {
+                npProgressContainer.setAttribute('data-seek-setup', 'true');
+                
+                // Click to seek
+                npProgressContainer.addEventListener('click', function(e) {
+                    if (npIsDragging) return;
+                    const rect = this.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const width = rect.width;
+                    const duration = audioPlayer.duration;
+                    if (duration) {
+                        audioPlayer.currentTime = (clickX / width) * duration;
+                    }
+                });
+                
+                // Drag functionality
+                npProgressContainer.addEventListener('mousedown', function(e) {
+                    npIsDragging = true;
+                    updateNpSeekPosition(e);
+                });
+                
+                document.addEventListener('mousemove', function(e) {
+                    if (npIsDragging) {
+                        updateNpSeekPosition(e);
+                    }
+                });
+                
+                document.addEventListener('mouseup', function() {
+                    npIsDragging = false;
+                });
+            }
+        }
+        
+        function updateNpSeekPosition(e) {
+            const npProgressContainer = document.getElementById('np-progress-container');
+            if (!npProgressContainer) return;
+            const rect = npProgressContainer.getBoundingClientRect();
+            const clickX = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+            const width = rect.width;
+            const duration = audioPlayer.duration;
+            if (duration) {
+                audioPlayer.currentTime = (clickX / width) * duration;
+            }
         }
         
         // Volume control
         volumeControl.addEventListener('input', setVolume);
         
-        function setVolume() {
-            audioPlayer.volume = this.value / 100;
+        function setVolume(value) {
+            // Handle both direct parameter calls and event listener calls
+            let volumeValue;
+            let volumePercentage;
+            if (typeof value === 'number') {
+                // Direct parameter call (e.g., from fullscreen modal)
+                volumeValue = value;
+                volumePercentage = value * 100;
+            } else if (value && value.target) {
+                // Event listener call
+                volumeValue = value.target.value / 100;
+                volumePercentage = value.target.value;
+            } else {
+                // Fallback to this.value (for inline onchange calls)
+                volumeValue = this.value / 100;
+                volumePercentage = this.value;
+            }
+            
+            // Set audio volume
+            audioPlayer.volume = volumeValue;
+            
+            // Sync both volume controls
+            const mainVolumeControl = document.getElementById('volume-control');
+            const npVolumeControl = document.getElementById('np-volume');
+            
+            if (mainVolumeControl && mainVolumeControl.value != volumePercentage) {
+                mainVolumeControl.value = volumePercentage;
+            }
+            if (npVolumeControl && npVolumeControl.value != volumePercentage) {
+                npVolumeControl.value = volumePercentage;
+            }
         }
         
         // Play a specific track
@@ -1374,9 +1538,67 @@
             // Update progress bar
             progressBar.style.width = '0%';
             
+            // Update Now Playing view if open
+            if (isNowPlayingOpen) {
+                updateNowPlayingView();
+            }
+            
+            // Update track icons in media library
+            updateTrackIcons();
+            
             // If player was playing, continue playing
             if (isPlaying) {
                 audioPlayer.play();
+            }
+        }
+        
+        // Update track icons in media library based on current playing track
+        function updateTrackIcons() {
+            // Reset all track icons to play state
+            tracks.forEach(track => {
+                const trackBtn = document.getElementById(`track-btn-${track.id}`);
+                const featuredBtn = document.getElementById(`featured-btn-${track.id}`);
+                
+                if (trackBtn) {
+                    const icon = trackBtn.querySelector('i');
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                }
+                
+                if (featuredBtn) {
+                    const icon = featuredBtn.querySelector('i');
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                }
+            });
+            
+            // Update current track icon based on playing state
+            if (currentTrackIndex >= 0 && tracks[currentTrackIndex]) {
+                const currentTrack = tracks[currentTrackIndex];
+                const currentTrackBtn = document.getElementById(`track-btn-${currentTrack.id}`);
+                const currentFeaturedBtn = document.getElementById(`featured-btn-${currentTrack.id}`);
+                
+                if (currentTrackBtn) {
+                    const icon = currentTrackBtn.querySelector('i');
+                    if (isPlaying) {
+                        icon.classList.remove('fa-play');
+                        icon.classList.add('fa-pause');
+                    } else {
+                        icon.classList.remove('fa-pause');
+                        icon.classList.add('fa-play');
+                    }
+                }
+                
+                if (currentFeaturedBtn) {
+                    const icon = currentFeaturedBtn.querySelector('i');
+                    if (isPlaying) {
+                        icon.classList.remove('fa-play');
+                        icon.classList.add('fa-pause');
+                    } else {
+                        icon.classList.remove('fa-pause');
+                        icon.classList.add('fa-play');
+                    }
+                }
             }
         }
         
@@ -1384,32 +1606,268 @@
         prevTrackBtn.addEventListener('click', prevTrack);
         
         function prevTrack() {
-            currentTrackIndex--;
-            if (currentTrackIndex < 0) {
-                currentTrackIndex = tracks.length - 1;
+            if (repeatMode === 'one') {
+                // Repeat One mode: restart current track
+                audioPlayer.currentTime = 0;
+                if (isPlaying) {
+                    audioPlayer.play();
+                }
+                return;
+            }
+            
+            if (isShuffleOn) {
+                // Shuffle mode: play random track
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * tracks.length);
+                } while (randomIndex === currentTrackIndex && tracks.length > 1);
+                currentTrackIndex = randomIndex;
+            } else {
+                // Normal mode: play previous track
+                currentTrackIndex--;
+                if (currentTrackIndex < 0) {
+                    currentTrackIndex = tracks.length - 1;
+                }
             }
             loadTrack(currentTrackIndex);
             if (isPlaying) {
                 audioPlayer.play();
             }
+            updateTrackIcons();
         }
         
         // Next track
         nextTrackBtn.addEventListener('click', nextTrack);
         
         function nextTrack() {
-            currentTrackIndex++;
-            if (currentTrackIndex > tracks.length - 1) {
-                currentTrackIndex = 0;
+            if (repeatMode === 'one') {
+                // Repeat One mode: restart current track
+                audioPlayer.currentTime = 0;
+                if (isPlaying) {
+                    audioPlayer.play();
+                }
+                return;
+            }
+            
+            if (isShuffleOn) {
+                // Shuffle mode: play random track
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * tracks.length);
+                } while (randomIndex === currentTrackIndex && tracks.length > 1);
+                currentTrackIndex = randomIndex;
+            } else {
+                // Normal mode: play next track
+                currentTrackIndex++;
+                if (currentTrackIndex > tracks.length - 1) {
+                    currentTrackIndex = 0;
+                }
             }
             loadTrack(currentTrackIndex);
             if (isPlaying) {
                 audioPlayer.play();
             }
+            updateTrackIcons();
         }
         
-        // When track ends, play next one
-        audioPlayer.addEventListener('ended', nextTrack);
+        // Shuffle, Repeat, and Fullscreen functionality
+        let isShuffleOn = false;
+        let repeatMode = 'off'; // 'off', 'all', 'one'
+        
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const repeatBtn = document.getElementById('repeat-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        
+        // Shuffle button
+        shuffleBtn.addEventListener('click', toggleShuffle);
+        
+        function toggleShuffle() {
+            isShuffleOn = !isShuffleOn;
+            if (isShuffleOn) {
+                shuffleBtn.classList.remove('text-gray-400');
+                shuffleBtn.classList.add('text-[var(--electric-cyan)]');
+                shuffleBtn.title = 'Shuffle: On';
+            } else {
+                shuffleBtn.classList.remove('text-[var(--electric-cyan)]');
+                shuffleBtn.classList.add('text-gray-400');
+                shuffleBtn.title = 'Shuffle: Off';
+            }
+            
+            // Update Now Playing view shuffle button if open
+            if (isNowPlayingOpen) {
+                const npShuffleBtn = document.getElementById('np-shuffle-btn');
+                if (npShuffleBtn) {
+                    if (isShuffleOn) {
+                        npShuffleBtn.classList.add('text-[var(--electric-cyan)]');
+                        npShuffleBtn.classList.remove('text-gray-400');
+                    } else {
+                        npShuffleBtn.classList.remove('text-[var(--electric-cyan)]');
+                        npShuffleBtn.classList.add('text-gray-400');
+                    }
+                }
+            }
+        }
+        
+        // Repeat button
+        repeatBtn.addEventListener('click', toggleRepeat);
+        
+        function toggleRepeat() {
+             if (repeatMode === 'off') {
+                 repeatMode = 'all';
+                 repeatBtn.classList.remove('text-gray-400');
+                 repeatBtn.classList.add('text-[var(--electric-cyan)]');
+                 repeatBtn.innerHTML = '<i class="fas fa-redo text-sm"></i>';
+                 repeatBtn.title = 'Repeat: All';
+             } else if (repeatMode === 'all') {
+                 repeatMode = 'one';
+                 repeatBtn.innerHTML = '<i class="fas fa-redo text-sm"></i><span class="text-xs absolute -top-1 -right-1 bg-[var(--electric-cyan)] text-black rounded-full w-3 h-3 flex items-center justify-center font-bold" style="font-size: 8px;">1</span>';
+                 repeatBtn.title = 'Repeat: One';
+             } else {
+                 repeatMode = 'off';
+                 repeatBtn.classList.remove('text-[var(--electric-cyan)]');
+                 repeatBtn.classList.add('text-gray-400');
+                 repeatBtn.innerHTML = '<i class="fas fa-redo text-sm"></i>';
+                 repeatBtn.title = 'Repeat: Off';
+             }
+             
+             // Update Now Playing view repeat button if open
+             if (isNowPlayingOpen) {
+                 const npRepeatBtn = document.getElementById('np-repeat-btn');
+                 if (npRepeatBtn) {
+                     if (repeatMode === 'off') {
+                         npRepeatBtn.classList.remove('text-[var(--electric-cyan)]');
+                         npRepeatBtn.classList.add('text-gray-400');
+                         npRepeatBtn.innerHTML = '<i class="fas fa-redo text-xl"></i>';
+                     } else if (repeatMode === 'all') {
+                         npRepeatBtn.classList.add('text-[var(--electric-cyan)]');
+                         npRepeatBtn.classList.remove('text-gray-400');
+                         npRepeatBtn.innerHTML = '<i class="fas fa-redo text-xl"></i>';
+                     } else {
+                         npRepeatBtn.classList.add('text-[var(--electric-cyan)]');
+                         npRepeatBtn.classList.remove('text-gray-400');
+                         npRepeatBtn.innerHTML = '<i class="fas fa-redo text-xl"></i><span class="text-xs absolute -top-1 -right-1 bg-[var(--electric-cyan)] text-black rounded-full w-4 h-4 flex items-center justify-center font-bold" style="font-size: 10px;">1</span>';
+                     }
+                 }
+             }
+         }
+        
+        // Fullscreen button (Now Playing View)
+        let isNowPlayingOpen = false;
+        fullscreenBtn.addEventListener('click', toggleNowPlaying);
+        
+        function toggleNowPlaying() {
+            const nowPlayingModal = document.getElementById('now-playing-modal');
+            if (!isNowPlayingOpen) {
+                // Show Now Playing view
+                nowPlayingModal.classList.remove('hidden');
+                nowPlayingModal.classList.add('flex');
+                updateNowPlayingView();
+                fullscreenBtn.querySelector('i').classList.remove('fa-expand');
+                fullscreenBtn.querySelector('i').classList.add('fa-compress');
+                fullscreenBtn.title = 'Close Now Playing';
+                isNowPlayingOpen = true;
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Hide Now Playing view
+                nowPlayingModal.classList.add('hidden');
+                nowPlayingModal.classList.remove('flex');
+                fullscreenBtn.querySelector('i').classList.remove('fa-compress');
+                fullscreenBtn.querySelector('i').classList.add('fa-expand');
+                fullscreenBtn.title = 'Now Playing';
+                isNowPlayingOpen = false;
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        function updateNowPlayingView() {
+            if (currentTrackIndex >= 0 && tracks[currentTrackIndex]) {
+                const track = tracks[currentTrackIndex];
+                document.getElementById('np-cover').src = track.cover;
+                document.getElementById('np-title').textContent = track.title;
+                document.getElementById('np-artist').textContent = track.artist;
+                document.getElementById('np-album').textContent = track.category.charAt(0).toUpperCase() + track.category.slice(1);
+                document.getElementById('np-duration').textContent = formatTime(audioPlayer.duration || 0);
+                
+                // Update play/pause button in now playing view
+                const npPlayBtn = document.getElementById('np-play-btn');
+                if (isPlaying) {
+                    npPlayBtn.innerHTML = '<i class="fas fa-pause text-2xl"></i>';
+                } else {
+                    npPlayBtn.innerHTML = '<i class="fas fa-play text-2xl"></i>';
+                }
+                
+                // Update shuffle and repeat states
+                const npShuffleBtn = document.getElementById('np-shuffle-btn');
+                const npRepeatBtn = document.getElementById('np-repeat-btn');
+                
+                if (isShuffleOn) {
+                    npShuffleBtn.classList.add('text-[var(--electric-cyan)]');
+                    npShuffleBtn.classList.remove('text-gray-400');
+                } else {
+                    npShuffleBtn.classList.remove('text-[var(--electric-cyan)]');
+                    npShuffleBtn.classList.add('text-gray-400');
+                }
+                
+                if (repeatMode === 'off') {
+                    npRepeatBtn.classList.remove('text-[var(--electric-cyan)]');
+                    npRepeatBtn.classList.add('text-gray-400');
+                    npRepeatBtn.innerHTML = '<i class="fas fa-redo text-xl"></i>';
+                } else if (repeatMode === 'all') {
+                    npRepeatBtn.classList.add('text-[var(--electric-cyan)]');
+                    npRepeatBtn.classList.remove('text-gray-400');
+                    npRepeatBtn.innerHTML = '<i class="fas fa-redo text-xl"></i>';
+                } else {
+                    npRepeatBtn.classList.add('text-[var(--electric-cyan)]');
+                    npRepeatBtn.classList.remove('text-gray-400');
+                    npRepeatBtn.innerHTML = '<i class="fas fa-redo text-xl"></i><span class="text-xs absolute -top-1 -right-1 bg-[var(--electric-cyan)] text-black rounded-full w-4 h-4 flex items-center justify-center font-bold" style="font-size: 10px;">1</span>';
+                }
+                
+                // Sync volume
+                document.getElementById('np-volume').value = volumeControl.value;
+                
+                // Setup enhanced seek functionality for Now Playing
+                setupNowPlayingSeek();
+                
+                // Now Playing controls use onclick attributes directly in HTML
+            }
+        }
+        
+        // When track ends, handle repeat and shuffle
+        audioPlayer.addEventListener('ended', () => {
+            if (repeatMode === 'one') {
+                // Repeat current track
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+            } else if (repeatMode === 'all') {
+                // Play next track (shuffle will be handled in nextTrack function)
+                nextTrack();
+            } else {
+                // repeatMode === 'off' - stop playing after last track
+                if (isShuffleOn) {
+                    // In shuffle mode, continue to next random track
+                    nextTrack();
+                } else {
+                    // Check if we're at the last track
+                    if (currentTrackIndex >= tracks.length - 1) {
+                        // Stop playing - we've reached the end
+                        isPlaying = false;
+                        playPauseIcon.classList.remove('fa-pause');
+                        playPauseIcon.classList.add('fa-play');
+                        
+                        // Update Now Playing view play/pause button if open
+                        if (isNowPlayingOpen) {
+                            const npPlayBtn = document.getElementById('np-play-btn');
+                            if (npPlayBtn) {
+                                npPlayBtn.innerHTML = '<i class="fas fa-play text-2xl"></i>';
+                            }
+                        }
+                    } else {
+                        // Continue to next track
+                        nextTrack();
+                    }
+                }
+            }
+        });
         
         // Initialize with first track
         loadTrack(currentTrackIndex);
@@ -1445,7 +1903,7 @@
                 trackItem.innerHTML = `
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3 flex-1 min-w-0">
-                            <button onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
+                            <button id="track-btn-${track.id}" onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
                                 <i class="fas fa-play text-xs"></i>
                             </button>
                             <div class="flex-1 min-w-0">
@@ -1491,7 +1949,7 @@
                 trackItem.innerHTML = `
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3 flex-1 min-w-0">
-                            <button onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
+                            <button id="track-btn-${track.id}" onclick="playTrack('${track.id}')" class="w-8 h-8 rounded-full bg-[var(--electric-cyan)] text-black flex items-center justify-center hover:scale-110 transition flex-shrink-0">
                                 <i class="fas fa-play text-xs"></i>
                             </button>
                             <div class="flex-1 min-w-0">
@@ -1638,12 +2096,48 @@
             shareTitle.textContent = `Share "${title}" with your friends!`;
             
             const url = encodeURIComponent(window.location.href);
-            const shareText = encodeURIComponent(text);
+            const trackUrl = window.location.href;
             
-            facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${shareText}`;
-            twitterShare.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${url}`;
-            instagramShare.href = `https://www.instagram.com/?url=${url}`;
-            shareLink.value = window.location.href;
+            // Create engaging social media post templates
+            const facebookText = encodeURIComponent(`🎵 Just discovered this incredible track "${title}" by DJ Bossman! 🔥\n\nThe beats are absolutely fire and the production quality is next level! 🎧\n\n#DJBossman #Music #Beats #NewMusic #Fire`);
+            const twitterText = encodeURIComponent(`🎵 Vibing to "${title}" by @DJBossman right now! 🔥 This track is absolutely incredible! 🎧\n\n#DJBossman #NewMusic #Beats #Fire #MusicLovers`);
+            const instagramText = encodeURIComponent(`🎵 Currently obsessed with "${title}" by DJ Bossman! 🔥\n\nThis track has been on repeat all day - the production is insane! 🎧✨\n\n#DJBossman #NewMusic #Beats #Fire #MusicIsLife #NowPlaying`);
+            
+            // Set up proper social media sharing URLs
+            facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${facebookText}`;
+            twitterShare.href = `https://twitter.com/intent/tweet?text=${twitterText}&url=${url}`;
+            
+            // For Instagram, copy text to clipboard and open Instagram
+            instagramShare.onclick = function(e) {
+                e.preventDefault();
+                
+                // Create a temporary textarea to copy the Instagram post text
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = `🎵 Currently obsessed with "${title}" by DJ Bossman! 🔥\n\nThis track has been on repeat all day - the production is insane! 🎧✨\n\n#DJBossman #NewMusic #Beats #Fire #MusicIsLife #NowPlaying\n\nCheck it out: ${trackUrl}`;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+                
+                // Show feedback
+                const originalText = instagramShare.innerHTML;
+                instagramShare.innerHTML = '<i class="fas fa-check mr-1 sm:mr-2"></i> Text Copied!';
+                instagramShare.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    instagramShare.innerHTML = originalText;
+                    instagramShare.style.backgroundColor = '';
+                }, 2000);
+                
+                // Open Instagram in a new tab
+                setTimeout(() => {
+                    window.open('https://www.instagram.com/', '_blank');
+                }, 500);
+                
+                return false;
+            };
+            
+            shareLink.value = trackUrl;
             
             shareModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -1824,7 +2318,7 @@
                 trackCard.innerHTML = `
                     <div class="relative mb-4 rounded-lg overflow-hidden bg-gray-800 h-64 flex-shrink-0">
                         <img src="${track.cover}" alt="${track.title} Cover" class="w-full h-full object-cover">
-                        <button class="play-icon absolute bottom-4 right-4 w-12 h-12 rounded-full gradient-bg flex items-center justify-center glow-cyan hover:scale-110 transition-transform" onclick="playTrack('${track.id}')">
+                        <button id="featured-btn-${track.id}" class="play-icon absolute bottom-4 right-4 w-12 h-12 rounded-full gradient-bg flex items-center justify-center glow-cyan hover:scale-110 transition-transform" onclick="playTrack('${track.id}')">
                             <i class="fas fa-play text-white"></i>
                         </button>
                     </div>
@@ -1854,6 +2348,7 @@
             createVisualizer();
             populateTracksGrid();
             populateFeaturedTracks();
+            updateTrackIcons();
             
             // Add event listeners for search input and filter dropdown
             const searchInput = document.querySelector('input[placeholder="Search tracks..."]');
@@ -1903,5 +2398,92 @@
             document.head.appendChild(style);
         });
     </script>
+
+    <!-- Now Playing Modal -->
+    <div id="now-playing-modal" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden items-center justify-center">
+        <div class="w-full h-full flex flex-col lg:flex-row max-w-6xl mx-auto p-6">
+            <!-- Album Art Section -->
+            <div class="flex-1 flex items-center justify-center mb-6 lg:mb-0 lg:pr-8">
+                <div class="relative">
+                    <img id="np-cover" src="" alt="Album Cover" class="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl shadow-2xl object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                </div>
+            </div>
+            
+            <!-- Track Info and Controls Section -->
+            <div class="flex-1 flex flex-col justify-center space-y-6">
+                <!-- Close Button -->
+                <button onclick="toggleNowPlaying()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-800 bg-opacity-50 hover:bg-opacity-80 flex items-center justify-center transition">
+                    <i class="fas fa-times text-white"></i>
+                </button>
+                
+                <!-- Track Information -->
+                <div class="space-y-2">
+                    <h1 id="np-title" class="text-3xl lg:text-4xl font-bold text-white">Track Title</h1>
+                    <p id="np-artist" class="text-xl lg:text-2xl text-gray-300">Artist Name</p>
+                    <div class="flex items-center space-x-4 text-sm text-gray-400">
+                        <span id="np-album">Album Name</span>
+                        <span>•</span>
+                        <span id="np-duration">0:00</span>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm text-gray-400">
+                        <span id="np-current-time">0:00</span>
+                        <span id="np-total-time">0:00</span>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2 cursor-pointer relative group hover:h-3 transition-all duration-200" id="np-progress-container">
+                        <div id="np-progress" class="bg-gradient-to-r from-[var(--electric-cyan)] to-[var(--vibrant-orange)] h-2 rounded-full transition-all duration-300 group-hover:h-3" style="width: 0%"></div>
+                        <div class="absolute top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" id="np-progress-thumb" style="left: 0%"></div>
+                    </div>
+                </div>
+                
+                <!-- Main Controls -->
+                <div class="flex items-center justify-center space-x-6">
+                    <button id="np-shuffle-btn" onclick="toggleShuffle()" class="text-gray-400 hover:text-white transition transform hover:scale-110 relative" title="Shuffle">
+                        <i class="fas fa-random text-xl"></i>
+                    </button>
+                    
+                    <button onclick="prevTrack()" class="text-white hover:text-[var(--electric-cyan)] transition transform hover:scale-110">
+                        <i class="fas fa-step-backward text-2xl"></i>
+                    </button>
+                    
+                    <button id="np-play-btn" onclick="togglePlayPause()" class="w-16 h-16 rounded-full bg-gradient-to-r from-[var(--electric-cyan)] to-[var(--vibrant-orange)] text-white flex items-center justify-center hover:scale-110 transition transform shadow-lg">
+                        <i class="fas fa-play text-2xl"></i>
+                    </button>
+                    
+                    <button onclick="nextTrack()" class="text-white hover:text-[var(--electric-cyan)] transition transform hover:scale-110">
+                        <i class="fas fa-step-forward text-2xl"></i>
+                    </button>
+                    
+                    <button id="np-repeat-btn" onclick="toggleRepeat()" class="text-gray-400 hover:text-white transition transform hover:scale-110 relative" title="Repeat">
+                        <i class="fas fa-redo text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Volume Control -->
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-volume-down text-gray-400"></i>
+                    <input type="range" id="np-volume" min="0" max="100" value="50" class="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider" onchange="setVolume(this.value / 100)">
+                    <i class="fas fa-volume-up text-gray-400"></i>
+                </div>
+                
+                <!-- Additional Actions -->
+                <div class="flex items-center justify-center space-x-4 pt-4">
+                    <button onclick="shareTrack(tracks[currentTrackIndex]?.title, 'Check out this amazing track!')" class="flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share</span>
+                    </button>
+                    <button onclick="downloadTrack(tracks[currentTrackIndex]?.id)" class="flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
