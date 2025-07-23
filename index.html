@@ -747,15 +747,30 @@
                 </div>
                 
                 <!-- Pagination Controls -->
-                <div id="mediaPagination" class="flex justify-center items-center space-x-2 mt-12">
-                    <button id="prevPageBtn" class="bg-[var(--electric-cyan)] text-black px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                        Previous
+                <div id="mediaPagination" class="flex justify-center items-center space-x-3 sm:space-x-4 mt-12 px-4">
+                    <button id="prevPageBtn" class="bg-[var(--electric-cyan)] text-black px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-lg hover:bg-opacity-80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium" disabled>
+                        <i class="fas fa-chevron-left mr-1 sm:mr-2"></i>
+                        <span class="hidden sm:inline">Previous</span>
+                        <span class="sm:hidden">Prev</span>
                     </button>
-                    <div id="pageNumbers" class="flex space-x-1">
-                        <!-- Page numbers will be dynamically generated -->
+                    
+                    <div class="flex items-center space-x-2 sm:space-x-3 bg-gray-900 bg-opacity-50 rounded-lg px-3 py-2 sm:px-4 sm:py-3 border border-gray-700">
+                        <span class="text-gray-400 text-sm sm:text-base">Page</span>
+                        <input 
+                            type="number" 
+                            id="pageInput" 
+                            class="w-12 sm:w-16 px-2 py-1 text-center bg-gray-800 text-white rounded border border-gray-600 focus:border-[var(--electric-cyan)] focus:outline-none text-sm sm:text-base" 
+                            min="1" 
+                            value="1"
+                        >
+                        <span class="text-gray-400 text-sm sm:text-base">of</span>
+                        <span id="totalPages" class="text-white font-medium text-sm sm:text-base">1</span>
                     </div>
-                    <button id="nextPageBtn" class="bg-[var(--electric-cyan)] text-black px-4 py-2 rounded-lg hover:bg-opacity-80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                        Next
+                    
+                    <button id="nextPageBtn" class="bg-[var(--electric-cyan)] text-black px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-lg hover:bg-opacity-80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium">
+                        <span class="hidden sm:inline">Next</span>
+                        <span class="sm:hidden">Next</span>
+                        <i class="fas fa-chevron-right ml-1 sm:ml-2"></i>
                     </button>
                 </div>
             </div>
@@ -861,43 +876,44 @@
         <!-- Contact Section -->
         <section id="contact" class="py-16 sm:py-20 bg-gradient-to-b from-[var(--dark-base)] to-black">
             <div class="container mx-auto px-4 sm:px-6">
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-6xl mx-auto">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron gradient-text mb-6 text-center">Get In Touch</h2>
                     <p class="text-gray-400 mb-8 sm:mb-12 text-center px-4">For bookings, collaborations, or just to say hello!</p>
                     
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-                        <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 border border-gray-800 hover:border-[var(--electric-cyan)] transition">
-                            <h3 class="text-xl font-bold mb-6 gradient-text">Contact Info</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
+                        <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 border border-gray-800 hover:border-[var(--magenta-highlight)] transition">
+                            <h3 class="text-xl font-bold mb-6 gradient-text">Custom Mixes & Mashups</h3>
                             
                             <div class="space-y-4">
                                 <div class="flex items-start space-x-4">
-                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
-                                        <i class="fas fa-phone-alt"></i>
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--magenta-highlight)]">
+                                        <i class="fas fa-music"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-medium">Phone</h4>
-                                        <a href="tel:314-283-9924" class="text-gray-400 hover:text-white transition">314-283-9924</a>
+                                        <h4 class="font-medium">Request Process</h4>
+                                        <p class="text-gray-400 text-sm">DM your request, then pay here</p>
                                     </div>
                                 </div>
                                 
                                 <div class="flex items-start space-x-4">
                                     <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
-                                        <i class="fas fa-envelope"></i>
+                                        <i class="fab fa-instagram"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-medium">Email</h4>
-                                        <a href="mailto:randydaboss10@gmail.com" class="text-gray-400 hover:text-white transition">randydaboss10@gmail.com</a>
+                                        <h4 class="font-medium">Message Me First</h4>
+                                        <a href="http://instagram.com/Randydaboss10" target="_blank" class="text-gray-400 hover:text-white transition">@Randydaboss10</a>
                                     </div>
                                 </div>
                                 
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium">Booking</h4>
-                                        <p class="text-gray-400">Available for events, parties, and collaborations</p>
-                                    </div>
+                                <div class="mt-6">
+                                    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+                                        <input type="hidden" name="business" value="randyw_52@yahoo.com">
+                                        <input type="hidden" name="currency_code" value="USD">
+                                        <input type="hidden" name="item_name" value="Custom Mix/Mashup Request">
+                                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-[var(--vibrant-orange)] to-[var(--magenta-highlight)] text-white font-semibold rounded-lg hover:opacity-90 transition duration-300 transform hover:scale-105">
+                                            <i class="fab fa-paypal mr-2"></i>Pay for Custom Mix
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -945,6 +961,42 @@
                                     <span>Spotify</span>
                                     <i class="fas fa-external-link-alt ml-auto text-gray-400"></i>
                                 </a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900 bg-opacity-50 rounded-xl p-8 border border-gray-800 hover:border-[var(--electric-cyan)] transition">
+                            <h3 class="text-xl font-bold mb-6 gradient-text">Contact Info</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Phone</h4>
+                                        <a href="tel:314-283-9924" class="text-gray-400 hover:text-white transition">314-283-9924</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Email</h4>
+                                        <a href="mailto:randydaboss10@gmail.com" class="text-gray-400 hover:text-white transition">randydaboss10@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-[var(--dark-base)] flex items-center justify-center text-[var(--electric-cyan)]">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Booking</h4>
+                                        <p class="text-gray-400">Available for events, parties, and collaborations</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2457,9 +2509,11 @@
         function updateMediaPagination() {
             const prevBtn = document.getElementById('prevPageBtn');
             const nextBtn = document.getElementById('nextPageBtn');
-            const pageNumbers = document.getElementById('pageNumbers');
+            const pageInput = document.getElementById('pageInput');
+            const totalPagesSpan = document.getElementById('totalPages');
+            const pagination = document.getElementById('mediaPagination');
             
-            if (!prevBtn || !nextBtn || !pageNumbers) return;
+            if (!prevBtn || !nextBtn || !pageInput || !totalPagesSpan) return;
             
             // Update previous button
             prevBtn.disabled = currentMediaPage === 1;
@@ -2477,62 +2531,49 @@
                 }
             };
             
-            // Generate page numbers
-            pageNumbers.innerHTML = '';
+            // Update page input and total pages display
+            pageInput.value = currentMediaPage;
+            pageInput.max = totalPages;
+            totalPagesSpan.textContent = totalPages;
             
-            if (totalPages <= 1) return;
-            
-            // Show page numbers with ellipsis for large page counts
-            const maxVisiblePages = 5;
-            let startPage = Math.max(1, currentMediaPage - Math.floor(maxVisiblePages / 2));
-            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-            
-            // Adjust start page if we're near the end
-            if (endPage - startPage < maxVisiblePages - 1) {
-                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            // Hide pagination if only one page
+            if (totalPages <= 1) {
+                pagination.style.display = 'none';
+            } else {
+                pagination.style.display = 'flex';
             }
             
-            // Add first page and ellipsis if needed
-            if (startPage > 1) {
-                addPageButton(1);
-                if (startPage > 2) {
-                    const ellipsis = document.createElement('span');
-                    ellipsis.textContent = '...';
-                    ellipsis.className = 'px-3 py-2 text-gray-400';
-                    pageNumbers.appendChild(ellipsis);
-                }
-            }
-            
-            // Add visible page numbers
-            for (let i = startPage; i <= endPage; i++) {
-                addPageButton(i);
-            }
-            
-            // Add ellipsis and last page if needed
-            if (endPage < totalPages) {
-                if (endPage < totalPages - 1) {
-                    const ellipsis = document.createElement('span');
-                    ellipsis.textContent = '...';
-                    ellipsis.className = 'px-3 py-2 text-gray-400';
-                    pageNumbers.appendChild(ellipsis);
-                }
-                addPageButton(totalPages);
+            // Add event listener for page input (only once)
+            if (!pageInput.hasAttribute('data-listener-added')) {
+                pageInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const pageNum = parseInt(this.value);
+                        if (pageNum >= 1 && pageNum <= totalPages && pageNum !== currentMediaPage) {
+                            displayTracks(currentMediaCategory, pageNum);
+                        } else {
+                            this.value = currentMediaPage; // Reset to current page if invalid
+                        }
+                    }
+                });
+                
+                pageInput.addEventListener('blur', function() {
+                    const pageNum = parseInt(this.value);
+                    if (pageNum >= 1 && pageNum <= totalPages && pageNum !== currentMediaPage) {
+                        displayTracks(currentMediaCategory, pageNum);
+                    } else {
+                        this.value = currentMediaPage; // Reset to current page if invalid
+                    }
+                });
+                
+                pageInput.setAttribute('data-listener-added', 'true');
             }
         }
         
-        // Add page button
-        function addPageButton(pageNum) {
-            const pageBtn = document.createElement('button');
-            pageBtn.textContent = pageNum;
-            pageBtn.className = `px-3 py-2 rounded-lg transition-colors duration-300 ${
-                pageNum === currentMediaPage 
-                    ? 'bg-[var(--electric-cyan)] text-black' 
-                    : 'bg-gray-800 text-white hover:bg-[var(--electric-cyan)] hover:text-black'
-            }`;
-            pageBtn.onclick = () => {
+        // Page input navigation helper
+        function goToPage(pageNum) {
+            if (pageNum >= 1 && pageNum <= totalPages && pageNum !== currentMediaPage) {
                 displayTracks(currentMediaCategory, pageNum);
-            };
-            document.getElementById('pageNumbers').appendChild(pageBtn);
+            }
         }
         
         // Lightbox functionality
@@ -2802,9 +2843,8 @@
         function downloadTrack(trackId) {
             const track = tracks.find(t => t.id === trackId);
             if (track) {
-                // In a real implementation, this would trigger a download
-                // For demo purposes, we'll just show an alert
-                alert(`Downloading "${track.title}" by ${track.artist}`);
+                // Show download modal instead of alert
+                showDownloadModal();
                 
                 // Track download in localStorage
                 let downloads = localStorage.getItem('trackDownloads') || '{}';
@@ -2812,6 +2852,20 @@
                 downloads[trackId] = (downloads[trackId] || 0) + 1;
                 localStorage.setItem('trackDownloads', JSON.stringify(downloads));
             }
+        }
+        
+        // Show download modal
+        function showDownloadModal() {
+            const modal = document.getElementById('download-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        // Close download modal
+        function closeDownloadModal() {
+            const modal = document.getElementById('download-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         }
         
         // Create floating particles
@@ -3035,6 +3089,27 @@
             document.head.appendChild(style);
         });
     </script>
+
+    <!-- Download Modal -->
+    <div id="download-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center">
+        <div class="bg-gray-900 rounded-xl p-8 max-w-md mx-4 border border-gray-700 shadow-2xl">
+            <div class="text-center">
+                <div class="mb-4">
+                    <i class="fas fa-download text-4xl text-[var(--electric-cyan)] mb-4"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">DM me to download this track!!</h3>
+                <p class="text-gray-400 mb-6">Send me a direct message on Instagram to request this track download.</p>
+                <div class="flex space-x-4 justify-center">
+                    <button onclick="closeDownloadModal()" class="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition">
+                        Close
+                    </button>
+                    <a href="https://instagram.com/Randydaboss10" target="_blank" class="px-6 py-2 bg-gradient-to-r from-[var(--electric-cyan)] to-[var(--vibrant-orange)] text-white rounded-lg hover:scale-105 transition transform">
+                        DM on Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Now Playing Modal -->
     <div id="now-playing-modal" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden items-center justify-center">
